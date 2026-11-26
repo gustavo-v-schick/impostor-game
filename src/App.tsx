@@ -4,6 +4,7 @@ import { createRound, getPlayerCard } from './game/round'
 import type { Round } from './game/round'
 import { version } from '../package.json'
 import { watchForUpdate, applyUpdate } from './pwa'
+import SettingsPanel, { loadSettings, saveSettings, getWordPool } from './SettingsPanel'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
@@ -41,7 +42,9 @@ export default function App() {
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const [game, setGame] = useState<GameState>({ phase: 'setup' })
-  const [usedWords, setUsedWords] = useState<string[]>([])
+  const [usedWords, setUsedWords] = useState<readonly string[]>([])
+  const [settings, setSettings] = useState(loadSettings)
+  useEffect(() => saveSettings(settings), [settings])
   const [updateWorker, setUpdateWorker] = useState<ServiceWorker | null>(null)
 
   useEffect(() => watchForUpdate(setUpdateWorker), [])
@@ -86,11 +89,10 @@ export default function App() {
   function startRound(): void {
     if (players.length < MIN_PLAYERS) return
 
-    const round = createRound(players, usedWords)
-    // A repeated word is possible only after the entire catalog is exhausted.
-    setUsedWords((current) =>
-      current.includes(round.entry.word) ? [round.entry.word] : [...current, round.entry.word],
-    )
+    const pool = getWordPool(settings)
+    if (!pool.length) return
+    const round = createRound(players, usedWords, { pool, clueEnabled: settings.clueEnabled })
+    setUsedWords(round.usedWords)
     setGame({ phase: 'handoff', round, playerIndex: 0 })
   }
 
@@ -175,7 +177,7 @@ export default function App() {
             <div className="secret">
               <p className="muted">Palavra secreta</p>
               <p className="secret-value">{round.entry.word}</p>
-              <p className="muted">Dica: {round.entry.clue}</p>
+              <p className="muted">{round.clueEnabled ? `Dica: ${round.entry.clue}` : 'Rodada sem dica'}</p>
             </div>
             <button type="button" className="primary full-width" onClick={startRound}>
               Nova rodada
@@ -264,10 +266,11 @@ export default function App() {
               : `Adicione mais ${missingPlayers} jogadores.`}
         </p>
       </section>
+      <SettingsPanel settings={settings} onChange={setSettings} />
       <button
         type="button"
         className="primary full-width start-button"
-        disabled={missingPlayers > 0}
+        disabled={missingPlayers > 0 || getWordPool(settings).length === 0}
         onClick={startRound}
       >
         Iniciar rodada
@@ -286,8 +289,14 @@ function SecretCard({ round, playerIndex }: { round: Round; playerIndex: number 
       <p className={`role-label ${isImpostor ? 'impostor-role' : 'civil-role'}`}>
         {isImpostor ? 'Você é o impostor' : 'Você é um civil'}
       </p>
-      <p className="muted">{isImpostor ? 'Sua dica' : 'Palavra secreta'}</p>
-      <p className="secret-value">{card.role === 'impostor' ? card.clue : card.word}</p>
+      {card.role === 'impostor' && card.clue === null ? (
+        <p className="muted">Nesta rodada, você não recebe dica.</p>
+      ) : (
+        <>
+          <p className="muted">{isImpostor ? 'Sua dica' : 'Palavra secreta'}</p>
+          <p className="secret-value">{card.role === 'impostor' ? card.clue : card.word}</p>
+        </>
+      )}
     </div>
   )
 }

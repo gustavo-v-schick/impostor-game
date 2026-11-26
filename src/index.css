@@ -269,3 +269,24 @@ input { background: #131522; border-color: #505169; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.settings-panel { margin-top: 16px; }
+.settings-panel summary { cursor: pointer; font-weight: 650; padding: 8px 0; }
+.settings-panel summary .muted { font-size: 12px; font-weight: 400; }
+.settings-content { margin-top: 12px; }
+.settings-content select, .custom-panel input {
+  width: 100%;
+  min-height: 48px;
+  font: inherit;
+  color: inherit;
+  background: #131522;
+  border: 1px solid #505169;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.check-option { display: flex; align-items: center; gap: 12px; min-height: 48px; margin: 12px 0; }
+.check-option input { flex: 0 0 auto; width: 22px; height: 22px; min-height: 0; accent-color: #b6aaff; }
+.custom-panel { border-top: 1px solid #3c3c51; padding-top: 10px; }
+.custom-panel p { font-size: 14px; line-height: 1.5; }
+.custom-panel label:not(:first-child) { margin-top: 12px; }
+.custom-panel form button { margin-top: 12px; }

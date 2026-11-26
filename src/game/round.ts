@@ -11,13 +11,26 @@ export interface Round {
   readonly entry: WordEntry
   readonly impostorIndex: number
   readonly startingPlayerIndex: number
+  readonly clueEnabled: boolean
+  readonly usedWords: readonly string[]
 }
 
 export type PlayerCard =
   | { readonly player: string; readonly role: 'civil'; readonly word: string }
-  | { readonly player: string; readonly role: 'impostor'; readonly clue: string }
+  | { readonly player: string; readonly role: 'impostor'; readonly clue: string | null }
 
-const words: readonly WordEntry[] = catalog
+export const words: readonly WordEntry[] = catalog
+
+export const CUSTOM_CATEGORY = 'Personalizadas'
+
+export interface RoundOptions {
+  readonly pool: readonly WordEntry[]
+  readonly clueEnabled: boolean
+}
+
+export function wordKey(word: string): string {
+  return word.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim()
+}
 
 function randomIndex(length: number, random: () => number): number {
   const value = random()
@@ -31,27 +44,34 @@ function randomIndex(length: number, random: () => number): number {
 export function createRound(
   players: readonly string[],
   usedWords: readonly string[] = [],
+  options: RoundOptions = { pool: words, clueEnabled: true },
   random: () => number = Math.random,
 ): Round {
   if (players.length < 3) {
     throw new Error('At least three players are required.')
   }
 
-  if (words.length === 0) {
+  const { pool, clueEnabled } = options
+  if (pool.length === 0) {
     throw new Error('No words available.')
   }
 
   const used = new Set(usedWords)
-  const unused = words.filter((entry) => !used.has(entry.word))
+  const unused = pool.filter((entry) => !used.has(wordKey(entry.word)))
+  const poolKeys = new Set(pool.map((entry) => wordKey(entry.word)))
 
-  // After exhaustion, start a new cycle without repeating the last word.
+  // Reset only the selected pool after exhaustion; keep other categories' history.
   const lastWord = usedWords[usedWords.length - 1]
-  const newCycle = words.filter((entry) => entry.word !== lastWord)
-  const candidates = unused.length > 0 ? unused : newCycle.length > 0 ? newCycle : words
+  const newCycle = pool.filter((entry) => wordKey(entry.word) !== lastWord)
+  const candidates = unused.length > 0 ? unused : newCycle.length > 0 ? newCycle : pool
+  const entry = candidates[randomIndex(candidates.length, random)]
+  const history = unused.length > 0 ? usedWords : usedWords.filter((key) => !poolKeys.has(key))
 
   return {
     players: [...players],
-    entry: candidates[randomIndex(candidates.length, random)],
+    entry,
+    clueEnabled,
+    usedWords: [...history, wordKey(entry.word)],
     impostorIndex: randomIndex(players.length, random),
     startingPlayerIndex: randomIndex(players.length, random),
   }
@@ -64,6 +84,6 @@ export function getPlayerCard(round: Round, playerIndex: number): PlayerCard {
 
   const player = round.players[playerIndex]
   return playerIndex === round.impostorIndex
-    ? { player, role: 'impostor', clue: round.entry.clue }
+    ? { player, role: 'impostor', clue: round.clueEnabled ? round.entry.clue : null }
     : { player, role: 'civil', word: round.entry.word }
 }

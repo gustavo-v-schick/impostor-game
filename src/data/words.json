@@ -2198,5 +2198,805 @@
     "category": "Ficção e fantasia",
     "word": "Extraterrestre",
     "clue": "Contato"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Martelo",
+    "clue": "Impacto"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Chave de fenda",
+    "clue": "Ajuste"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Alicate",
+    "clue": "Pressão"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Serrote",
+    "clue": "Divisão"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Furadeira",
+    "clue": "Perfuração"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Trena",
+    "clue": "Distância"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Nível de bolha",
+    "clue": "Equilíbrio"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Escada",
+    "clue": "Alcance"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Parafuso",
+    "clue": "Fixação"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Prego",
+    "clue": "União"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Lixa",
+    "clue": "Acabamento"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Pincel",
+    "clue": "Traço"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Rolo de pintura",
+    "clue": "Cobertura"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Cimento",
+    "clue": "Base"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Tijolo",
+    "clue": "Estrutura"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Betoneira",
+    "clue": "Mistura"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Carrinho de mão",
+    "clue": "Transporte"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Capacete de obra",
+    "clue": "Proteção"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Andaime",
+    "clue": "Altura"
+  },
+  {
+    "category": "Ferramentas e construção",
+    "word": "Cola quente",
+    "clue": "Adesão"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Cartão de crédito",
+    "clue": "Limite"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Caixa eletrônico",
+    "clue": "Retirada"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Cupom fiscal",
+    "clue": "Comprovante"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Desconto",
+    "clue": "Economia"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Leilão",
+    "clue": "Disputa"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Cofre",
+    "clue": "Segurança"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Moeda",
+    "clue": "Troca"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Cheque",
+    "clue": "Assinatura"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Pix",
+    "clue": "Instantâneo"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Salário",
+    "clue": "Recompensa"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Imposto",
+    "clue": "Obrigação"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Poupança",
+    "clue": "Reserva"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Investimento",
+    "clue": "Futuro"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Empréstimo",
+    "clue": "Compromisso"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Troco",
+    "clue": "Diferença"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Carteira digital",
+    "clue": "Praticidade"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Liquidação",
+    "clue": "Oportunidade"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Vitrine",
+    "clue": "Atração"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Mercado de pulgas",
+    "clue": "Garimpo"
+  },
+  {
+    "category": "Comércio e dinheiro",
+    "word": "Vale-presente",
+    "clue": "Escolha"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Quadro branco",
+    "clue": "Explicação"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Giz",
+    "clue": "Poeira"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Grampeador",
+    "clue": "União"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Clipes",
+    "clue": "Agrupamento"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Marca-texto",
+    "clue": "Destaque"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Régua",
+    "clue": "Precisão"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Compasso",
+    "clue": "Geometria"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Transferidor",
+    "clue": "Ângulo"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Apontador",
+    "clue": "Preparação"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Estojo",
+    "clue": "Organização"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Calendário",
+    "clue": "Planejamento"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Post-it",
+    "clue": "Lembrete"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Pasta de documentos",
+    "clue": "Arquivo"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Calculadora",
+    "clue": "Resultado"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Dicionário",
+    "clue": "Significado"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Atlas",
+    "clue": "Localização"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Enciclopédia",
+    "clue": "Conhecimento"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Diploma",
+    "clue": "Conquista"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Carimbo",
+    "clue": "Validação"
+  },
+  {
+    "category": "Escola e escritório",
+    "word": "Projetor",
+    "clue": "Apresentação"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Termômetro",
+    "clue": "Medição"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Estetoscópio",
+    "clue": "Escuta"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Curativo",
+    "clue": "Proteção"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Seringa",
+    "clue": "Aplicação"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Muleta",
+    "clue": "Apoio"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Cadeira de rodas",
+    "clue": "Mobilidade"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Raio X",
+    "clue": "Interior"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Gesso ortopédico",
+    "clue": "Imobilidade"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Vacina",
+    "clue": "Prevenção"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Compressa",
+    "clue": "Alívio"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Massagem",
+    "clue": "Relaxamento"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Meditação",
+    "clue": "Atenção"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Yoga",
+    "clue": "Flexibilidade"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Protetor solar",
+    "clue": "Exposição"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Sabonete",
+    "clue": "Higiene"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Máscara cirúrgica",
+    "clue": "Barreira"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Ambulatório",
+    "clue": "Atendimento"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Lente de contato",
+    "clue": "Correção"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Aparelho ortodôntico",
+    "clue": "Alinhamento"
+  },
+  {
+    "category": "Saúde e bem-estar",
+    "word": "Balança",
+    "clue": "Medida"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Bumba meu boi",
+    "clue": "Espetáculo"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Frevo",
+    "clue": "Energia"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Capoeira",
+    "clue": "Ginga"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Forró",
+    "clue": "Parceria"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Maracatu",
+    "clue": "Cortejo"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Cordel",
+    "clue": "Versos"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Folia de Reis",
+    "clue": "Visita"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Trio elétrico",
+    "clue": "Multidão"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Quadrilha junina",
+    "clue": "Coreografia"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Fogueira",
+    "clue": "Calor"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Rede de descanso",
+    "clue": "Balanço"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Berimbau",
+    "clue": "Cadência"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Canga",
+    "clue": "Praia"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Arara-azul",
+    "clue": "Conservação"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Pantanal",
+    "clue": "Cheia"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Amazônia",
+    "clue": "Biodiversidade"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Pão francês",
+    "clue": "Rotina"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Filtro de barro",
+    "clue": "Paciência"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Orelhão",
+    "clue": "Comunicação"
+  },
+  {
+    "category": "Brasil e cultura",
+    "word": "Sítio",
+    "clue": "Sossego"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Pirâmide",
+    "clue": "Eternidade"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Castelo",
+    "clue": "Defesa"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Muralha",
+    "clue": "Limite"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Coliseu",
+    "clue": "Espetáculo"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Fóssil",
+    "clue": "Vestígio"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Pergaminho",
+    "clue": "Registro"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Ampulheta",
+    "clue": "Passagem"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Bússola",
+    "clue": "Orientação"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Caravela",
+    "clue": "Descoberta"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Armadura",
+    "clue": "Proteção"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Coroa real",
+    "clue": "Poder"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Trono",
+    "clue": "Autoridade"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Mapa do tesouro",
+    "clue": "Busca"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Moeda antiga",
+    "clue": "Vestígio"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Aqueduto",
+    "clue": "Abastecimento"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Farol",
+    "clue": "Guia"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Obelisco",
+    "clue": "Monumento"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Vitral",
+    "clue": "Luz"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Sarcófago",
+    "clue": "Preservação"
+  },
+  {
+    "category": "História e patrimônio",
+    "word": "Ruínas",
+    "clue": "Memória"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Aquarela",
+    "clue": "Transparência"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Escultura",
+    "clue": "Volume"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Grafite",
+    "clue": "Expressão"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Mosaico",
+    "clue": "Fragmentos"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Origami",
+    "clue": "Dobras"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Colagem",
+    "clue": "Composição"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Cerâmica",
+    "clue": "Modelagem"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Bordado",
+    "clue": "Paciência"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Crochê",
+    "clue": "Trama"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Pintura a óleo",
+    "clue": "Textura"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Caricatura",
+    "clue": "Exagero"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Retrato",
+    "clue": "Identidade"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Autorretrato",
+    "clue": "Reflexão"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Teatro",
+    "clue": "Interpretação"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Ballet",
+    "clue": "Leveza"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Circo",
+    "clue": "Equilíbrio"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Ilusionismo",
+    "clue": "Engano"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Fantoche",
+    "clue": "Manipulação"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Roteiro",
+    "clue": "Estrutura"
+  },
+  {
+    "category": "Artes e criatividade",
+    "word": "Exposição de arte",
+    "clue": "Curadoria"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Passaporte",
+    "clue": "Fronteira"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Mala de viagem",
+    "clue": "Bagagem"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Cartão de embarque",
+    "clue": "Acesso"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Albergue",
+    "clue": "Compartilhamento"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Barraca",
+    "clue": "Abrigo"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Saco de dormir",
+    "clue": "Isolamento"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Prancha de bodyboard",
+    "clue": "Onda"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Boia",
+    "clue": "Flutuação"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Snorkel",
+    "clue": "Respiração"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Binóculo",
+    "clue": "Distância"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Mirante",
+    "clue": "Perspectiva"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Trilha",
+    "clue": "Percurso"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Cruzeiro",
+    "clue": "Travessia"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Excursão",
+    "clue": "Grupo"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Souvenir",
+    "clue": "Lembrança"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Cartão-postal",
+    "clue": "Saudade"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Parque aquático",
+    "clue": "Refresco"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Roda-gigante",
+    "clue": "Vista"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Montanha-russa",
+    "clue": "Adrenalina"
+  },
+  {
+    "category": "Viagens e lazer",
+    "word": "Labirinto",
+    "clue": "Orientação"
   }
 ]
