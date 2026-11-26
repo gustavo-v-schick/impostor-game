@@ -178,3 +178,94 @@ button:disabled {
   color: inherit;
   padding: 12px;
 }
+
+/* Visual identity */
+:root {
+  background: #11131e;
+  color: #f8f7fc;
+}
+
+body {
+  background: radial-gradient(ellipse at 50% 0%, #29223f 0%, #11131e 55%);
+}
+
+.setup {
+  padding-top: max(32px, env(safe-area-inset-top));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.brand img { border-radius: 18px; border: 1px solid #4e456b; }
+.brand h1 { letter-spacing: -0.055em; margin: 0; }
+.brand .eyebrow { margin: 0 0 3px; }
+.brand-dot { color: #b6aaff; }
+
+.eyebrow { color: #b6aaff; letter-spacing: 0.16em; }
+.panel {
+  background: #1d2030;
+  border-color: #3c3c51;
+  box-shadow: 0 12px 36px #08091055;
+  border-radius: 20px;
+}
+.primary {
+  background: #b6aaff;
+  color: #1a1530;
+  transition: background 150ms ease, transform 150ms ease;
+}
+.primary:not(:disabled):active, .secondary:active { transform: scale(.98); }
+input { background: #131522; border-color: #505169; }
+.secondary { border-color: #505169; }
+.count { background: #37334e; }
+.secret { background: #131522; border-color: #3c3c51; }
+.role-impostor { border-color: #9b4d65; background: #2c1d2b; }
+.role-civil { border-color: #397b69; background: #152822; }
+.role-label { text-transform: uppercase; letter-spacing: .06em; font-size: 13px; }
+.role-card { animation: reveal 200ms ease-out both; }
+.round-panel { animation: enter 200ms ease-out both; }
+@keyframes enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.distribution-header { margin-bottom: 18px; }
+.progress {
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border: 0;
+  border-radius: 99px;
+  overflow: hidden;
+  background: #303246;
+  margin-top: 12px;
+}
+.progress::-webkit-progress-bar { background: #303246; }
+.progress::-webkit-progress-value { background: #b6aaff; }
+.progress::-moz-progress-bar { background: #b6aaff; }
+
+.version-footer {
+  font-size: 11px;
+  color: #a5a6b9;
+  letter-spacing: .08em;
+  text-align: center;
+  padding-top: 22px;
+}
+.update-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: #28243c;
+  border-radius: 12px;
+  font-size: 14px;
+}
+.update-notice button { padding: 6px 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

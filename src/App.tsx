@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { createRound, getPlayerCard } from './game/round'
 import type { Round } from './game/round'
+import { version } from '../package.json'
+import { watchForUpdate, applyUpdate } from './pwa'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
@@ -40,6 +42,9 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [game, setGame] = useState<GameState>({ phase: 'setup' })
   const [usedWords, setUsedWords] = useState<string[]>([])
+  const [updateWorker, setUpdateWorker] = useState<ServiceWorker | null>(null)
+
+  useEffect(() => watchForUpdate(setUpdateWorker), [])
 
   useEffect(() => {
     try {
@@ -112,9 +117,10 @@ export default function App() {
 
     return (
       <main className="setup round-screen">
-        <header>
+        <header className="distribution-header">
           <p className="eyebrow">DISTRIBUIÇÃO</p>
           <p className="muted">Jogador {playerIndex + 1} de {round.players.length}</p>
+          <progress className="progress" value={playerIndex + (game.phase === 'card' ? 1 : 0)} max={round.players.length} aria-label="Progresso da distribuição" />
         </header>
 
         {game.phase === 'handoff' ? (
@@ -135,6 +141,7 @@ export default function App() {
             </button>
           </section>
         )}
+        <VersionFooter />
       </main>
     )
   }
@@ -178,6 +185,7 @@ export default function App() {
             </button>
           </section>
         )}
+        <VersionFooter />
       </main>
     )
   }
@@ -185,11 +193,22 @@ export default function App() {
   return (
     <main className="setup">
       <header>
-        <p className="eyebrow">JOGO DE DEDUÇÃO</p>
-        <h1>Impostor</h1>
+        <div className="brand">
+          <img src={`${import.meta.env.BASE_URL}icon-192.png`} alt="" width="60" height="60" />
+          <div>
+            <p className="eyebrow">JOGO DE DEDUÇÃO</p>
+            <h1>Impostor<span className="brand-dot">.</span></h1>
+          </div>
+        </div>
         <p className="muted">Adicione os jogadores para começar.</p>
       </header>
 
+      {updateWorker && (
+        <div className="update-notice">
+          <span>Nova versão disponível.</span>
+          <button className="secondary" type="button" onClick={() => applyUpdate(updateWorker)}>Atualizar</button>
+        </div>
+      )}
       <section className="panel" aria-labelledby="players-heading">
         <div className="section-heading">
           <h2 id="players-heading">Jogadores</h2>
@@ -253,6 +272,7 @@ export default function App() {
       >
         Iniciar rodada
       </button>
+      <VersionFooter />
     </main>
   )
 }
@@ -262,7 +282,7 @@ function SecretCard({ round, playerIndex }: { round: Round; playerIndex: number 
   const isImpostor = card.role === 'impostor'
 
   return (
-    <div className="secret">
+    <div className={`secret role-card ${isImpostor ? 'role-impostor' : 'role-civil'}`}>
       <p className={`role-label ${isImpostor ? 'impostor-role' : 'civil-role'}`}>
         {isImpostor ? 'Você é o impostor' : 'Você é um civil'}
       </p>
@@ -270,4 +290,8 @@ function SecretCard({ round, playerIndex }: { round: Round; playerIndex: number 
       <p className="secret-value">{card.role === 'impostor' ? card.clue : card.word}</p>
     </div>
   )
+}
+
+function VersionFooter() {
+  return <footer className="version-footer">IMPOSTOR GAME · v{version}</footer>
 }
