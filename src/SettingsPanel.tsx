@@ -2,6 +2,10 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { CUSTOM_CATEGORY, wordKey, words, getHints } from './game/round'
 import type { WordEntry, Difficulty } from './game/round'
+import { filterWords } from './game/collection'
+import type { Collection } from './game/collection'
+
+export type Theme = 'violet' | 'ocean' | 'forest' | 'amber'
 
 export interface GameSettings {
   readonly categories: readonly string[]
@@ -10,6 +14,8 @@ export interface GameSettings {
   readonly holdToReveal: boolean
   readonly clueEnabled: boolean
   readonly customWords: readonly WordEntry[]
+  readonly theme: Theme
+  readonly sound: boolean
 }
 
 const STORAGE_KEY = 'impostor-game:settings'
@@ -17,7 +23,7 @@ const TIMER_OPTIONS = [0, 60, 120, 180, 300] as const
 const categories = [...new Set(words.map((entry) => entry.category))].sort((a, b) => a.localeCompare(b, 'pt-BR'))
 
 export function loadSettings(): GameSettings {
-  const defaults: GameSettings = { categories: [], difficulty: 'medium', timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [] }
+  const defaults: GameSettings = { categories: [], difficulty: 'medium', timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [], theme: 'violet', sound: false }
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null')
     if (!stored || typeof stored !== 'object') return defaults
@@ -44,6 +50,8 @@ export function loadSettings(): GameSettings {
       holdToReveal: typeof stored.holdToReveal === 'boolean' ? stored.holdToReveal : true,
       clueEnabled: typeof stored.clueEnabled === 'boolean' ? stored.clueEnabled : true,
       customWords,
+      theme: stored.theme === 'ocean' || stored.theme === 'forest' || stored.theme === 'amber' ? stored.theme : 'violet',
+      sound: stored.sound === true,
     }
   } catch {
     return defaults
@@ -58,9 +66,9 @@ export function saveSettings(settings: GameSettings): void {
   }
 }
 
-export function getWordPool(settings: GameSettings): readonly WordEntry[] {
+export function getWordPool(settings: GameSettings, collection: Collection): readonly WordEntry[] {
   const entries = [...words, ...settings.customWords]
-  return entries.filter((entry) =>
+  return filterWords(entries, collection).filter((entry) =>
     (settings.categories.length === 0 || settings.categories.includes(entry.category)) &&
     (!settings.clueEnabled || getHints(entry, settings.difficulty).length > 0),
   )
@@ -68,10 +76,11 @@ export function getWordPool(settings: GameSettings): readonly WordEntry[] {
 
 interface Props {
   settings: GameSettings
+  collection: Collection
   onChange: (settings: GameSettings) => void
 }
 
-export default function SettingsPanel({ settings, onChange }: Props) {
+export default function SettingsPanel({ settings, collection, onChange }: Props) {
   const [word, setWord] = useState('')
   const [clue, setClue] = useState('')
   const [error, setError] = useState('')
@@ -109,7 +118,7 @@ export default function SettingsPanel({ settings, onChange }: Props) {
 
   return (
     <details className="panel settings-panel">
-      <summary>Opções da rodada <span className="muted">· {getWordPool(settings).length} palavras</span></summary>
+      <summary>Opções da rodada <span className="muted">· {getWordPool(settings, collection).length} palavras</span></summary>
       <div className="settings-content">
         <details className="category-panel">
           <summary>Categorias · {settings.categories.length === 0 ? 'Todas' : settings.categories.length + ' selecionadas'}</summary>
@@ -146,7 +155,18 @@ export default function SettingsPanel({ settings, onChange }: Props) {
           <input type="checkbox" checked={settings.holdToReveal} onChange={(event) => onChange({ ...settings, holdToReveal: event.target.checked })} />
           Segurar para revelar
         </label>
-        {getWordPool(settings).length === 0 && <p className="error" role="alert">Nenhuma palavra disponível com estas opções.</p>}
+        {getWordPool(settings, collection).length === 0 && <p className="error" role="alert">Nenhuma palavra disponível com estas opções.</p>}
+        <label htmlFor="theme">Tema visual</label>
+        <select id="theme" value={settings.theme} onChange={event => onChange({ ...settings, theme: event.target.value as Theme })}>
+          <option value="violet">Violeta</option>
+          <option value="ocean">Oceano</option>
+          <option value="forest">Floresta</option>
+          <option value="amber">Âmbar</option>
+        </select>
+        <label className="check-option">
+          <input type="checkbox" checked={settings.sound} onChange={event => onChange({ ...settings, sound: event.target.checked })} />
+          Efeitos sonoros
+        </label>
         <details className="custom-panel">
           <summary>Palavras personalizadas ({settings.customWords.length})</summary>
           <p className="muted">Adicione referências do seu grupo antes da partida. Elas entram no sorteio de todas as categorias ou em Personalizadas.</p>

@@ -105,3 +105,41 @@ test('invalid players, empty pools, invalid indices and random values are reject
   assert.throws(() => getPlayerCard(round, -1), RangeError)
   assert.throws(() => getPlayerCard(round, 1.5), RangeError)
 })
+
+const { emptyCollection, toggleFavorite, toggleBlocked, rateClue, filterWords, recordCompleted } = require('../.test-build/game/collection.js')
+
+test('favorites have double weight but cannot bypass no-repeat history', () => {
+  const round = createRound(players, [], { ...options, favoriteWords: ['pinguim'] }, () => 0.99)
+  assert.equal(round.entry.word, 'Pinguim')
+  const next = createRound(players, ['pinguim'], { ...options, favoriteWords: ['pinguim'] }, () => 0.99)
+  assert.notEqual(next.entry.word, 'Pinguim')
+})
+
+test('blocking excludes words and removes favorite status; unblocking restores availability', () => {
+  let collection = toggleFavorite(emptyCollection(), 'Pinguim')
+  collection = toggleBlocked(collection, 'PINGUIM')
+  assert.deepEqual(collection.favorites, [])
+  assert.equal(filterWords(pool, collection).length, 2)
+  collection = toggleBlocked(collection, 'pinguim')
+  assert.equal(filterWords(pool, collection).length, 3)
+})
+
+test('rating replaces previous vote and can be cleared', () => {
+  let collection = rateClue(emptyCollection(), 'Pinguim', 'Frio', 'good')
+  collection = rateClue(collection, 'pinguim', 'frio', 'bad')
+  assert.equal(collection.ratings.length, 1)
+  assert.equal(collection.ratings[0].rating, 'bad')
+  collection = rateClue(collection, 'Pinguim', 'Frio', 'bad')
+  assert.equal(collection.ratings.length, 0)
+})
+
+test('completed rounds record participation and exactly one impostor', () => {
+  const round = createRound(players, [], options, first)
+  const initial = emptyCollection()
+  const collection = recordCompleted(initial, round)
+  assert.equal(initial.completed, 0)
+  assert.equal(collection.completed, 1)
+  assert.equal(collection.roles.length, players.length)
+  assert.equal(collection.roles.reduce((sum, role) => sum + role.impostor, 0), 1)
+  assert.ok(collection.roles.every(role => role.rounds === 1))
+})

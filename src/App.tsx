@@ -7,6 +7,9 @@ import { watchForUpdate, applyUpdate } from './pwa'
 import SettingsPanel, { loadSettings, saveSettings, getWordPool } from './SettingsPanel'
 import { loadHistory, saveHistory } from './game/history'
 import { RevealButton, DiscussionTimer } from './RoundControls'
+import { loadCollection, saveCollection, recordCompleted } from './game/collection'
+import { CollectionPanel, RoundFeedback, StatsPanel } from './CollectionPanel'
+import { playSound } from './sound'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
@@ -46,7 +49,10 @@ export default function App() {
   const [game, setGame] = useState<GameState>({ phase: 'setup' })
   const [history, setHistory] = useState(loadHistory)
   useEffect(() => saveHistory(history), [history])
+  const [collection, setCollection] = useState(loadCollection)
+  useEffect(() => saveCollection(collection), [collection])
   const [settings, setSettings] = useState(loadSettings)
+  useEffect(() => { document.documentElement.dataset.theme = settings.theme }, [settings.theme])
   useEffect(() => saveSettings(settings), [settings])
   const [updateWorker, setUpdateWorker] = useState<ServiceWorker | null>(null)
 
@@ -87,25 +93,38 @@ export default function App() {
     setError('')
   }
 
+  function movePlayer(index: number, direction: -1 | 1): void {
+    setPlayers(current => {
+      const target = index + direction
+      if (target < 0 || target >= current.length) return current
+      const next = [...current]
+      ;[next[index], next[target]] = [next[target], next[index]]
+      return next
+    })
+  }
+
   const missingPlayers = Math.max(0, MIN_PLAYERS - players.length)
+  const pool = getWordPool(settings, collection)
 
   function startRound(): void {
     if (players.length < MIN_PLAYERS) return
 
-    const pool = getWordPool(settings)
     if (!pool.length) return
     const round = createRound(players, history.usedWords, {
       pool,
       clueEnabled: settings.clueEnabled,
       difficulty: settings.difficulty,
       previousImpostor: history.previousImpostor,
+      favoriteWords: collection.favorites,
     })
     setHistory({ usedWords: round.usedWords, previousImpostor: wordKey(round.players[round.impostorIndex]) })
+    playSound(settings.sound, 'start')
     setGame({ phase: 'handoff', round, playerIndex: 0 })
   }
 
   function cancelRound(): void {
     if (window.confirm('Cancelar esta rodada e voltar aos jogadores?')) {
+      setCollection(current => ({ ...current, cancelled: current.cancelled + 1 }))
       setGame({ phase: 'setup' })
     }
   }
@@ -117,6 +136,7 @@ export default function App() {
   }
 
   function hideCard(): void {
+    playSound(settings.sound, 'next')
     setGame((current) => {
       if (current.phase !== 'card') return current
 
@@ -179,7 +199,11 @@ export default function App() {
             <button
               type="button"
               className="primary full-width"
-              onClick={() => setGame({ phase: 'result', round })}
+              onClick={() => {
+                setCollection(current => recordCompleted(current, round))
+                playSound(settings.sound, 'end')
+                setGame({ phase: 'result', round })
+              }}
             >
               Revelar impostor
             </button>
@@ -194,9 +218,11 @@ export default function App() {
               <p className="secret-value">{round.entry.word}</p>
               <p className="muted">{round.clueEnabled ? `Dica: ${round.entry.clue}` : 'Rodada sem dica'}</p>
             </div>
-            <button type="button" className="primary full-width" onClick={startRound}>
+            <RoundFeedback round={round} collection={collection} onChange={setCollection} />
+            <button type="button" className="primary full-width" disabled={pool.length === 0} onClick={startRound}>
               Nova rodada
             </button>
+            {pool.length === 0 && <p className="error">Nenhuma palavra disponível. Altere as opções para continuar.</p>}
             <button type="button" className="secondary full-width" onClick={() => setGame({ phase: 'setup' })}>
               Alterar jogadores
             </button>
@@ -258,9 +284,12 @@ export default function App() {
           <p className="empty">Nenhum jogador adicionado.</p>
         ) : (
           <ul className="players">
-            {players.map((player) => (
+            {players.map((player, index) => (
               <li key={player}>
                 <span>{player}</span>
+                <div className="player-actions">
+                  <button type="button" className="secondary compact" disabled={index === 0} aria-label={'Mover ' + player + ' para cima'} onClick={() => movePlayer(index, -1)}>↑</button>
+                  <button type="button" className="secondary compact" disabled={index === players.length - 1} aria-label={'Mover ' + player + ' para baixo'} onClick={() => movePlayer(index, 1)}>↓</button>
                 <button
                   type="button"
                   className="remove"
@@ -269,6 +298,7 @@ export default function App() {
                 >
                   Remover
                 </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -281,11 +311,13 @@ export default function App() {
               : `Adicione mais ${missingPlayers} jogadores.`}
         </p>
       </section>
-      <SettingsPanel settings={settings} onChange={setSettings} />
+      <SettingsPanel settings={settings} collection={collection} onChange={setSettings} />
+      <CollectionPanel collection={collection} customWords={settings.customWords} onChange={setCollection} />
+      <StatsPanel collection={collection} onChange={setCollection} />
       <button
         type="button"
         className="primary full-width start-button"
-        disabled={missingPlayers > 0 || getWordPool(settings).length === 0}
+        disabled={missingPlayers > 0 || pool.length === 0}
         onClick={startRound}
       >
         Iniciar rodada
