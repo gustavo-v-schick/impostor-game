@@ -134,10 +134,10 @@ export default function SettingsPanel({ settings, onChange }: Props) {
         <label htmlFor="difficulty">Dificuldade da dica</label>
         <select id="difficulty" disabled={!settings.clueEnabled} value={settings.difficulty} onChange={(event) => onChange({ ...settings, difficulty: event.target.value as Difficulty })}>
           <option value="easy">Fácil — dicas mais diretas</option>
-          <option value="medium">Normal — catálogo completo</option>
+          <option value="medium">Normal — dicas equilibradas</option>
           <option value="hard">Difícil — dicas indiretas</option>
         </select>
-        <p className="muted category-help">Fácil e difícil usam palavras com dicas revisadas; palavras personalizadas entram no modo normal ou sem dica.</p>
+        <p className="muted category-help">Todas as palavras do catálogo têm dicas nos três níveis. Palavras personalizadas entram no modo normal ou sem dica.</p>
         <label htmlFor="timer">Tempo de discussão</label>
         <select id="timer" value={settings.timerSeconds} onChange={(event) => onChange({ ...settings, timerSeconds: Number(event.target.value) })}>
           {TIMER_OPTIONS.map((seconds) => <option key={seconds} value={seconds}>{seconds ? seconds / 60 + ' min' : 'Sem cronômetro'}</option>)}
