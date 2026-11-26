@@ -1,10 +1,32 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { createRound, getPlayerCard } from './game/round'
 import type { Round } from './game/round'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
+const PLAYERS_STORAGE_KEY = 'impostor-game:players'
+
+function loadPlayers(): string[] {
+  try {
+    const stored: unknown = JSON.parse(localStorage.getItem(PLAYERS_STORAGE_KEY) ?? '[]')
+    if (!Array.isArray(stored)) return []
+
+    const players: string[] = []
+    const names = new Set<string>()
+    for (const value of stored) {
+      if (typeof value !== 'string') continue
+      const name = value.trim()
+      const key = name.toLocaleLowerCase('pt-BR')
+      if (!name || name.length > MAX_NAME_LENGTH || names.has(key)) continue
+      names.add(key)
+      players.push(name)
+    }
+    return players
+  } catch {
+    return []
+  }
+}
 
 type GameState =
   | { phase: 'setup' }
@@ -12,12 +34,20 @@ type GameState =
   | { phase: 'playing' | 'result'; round: Round }
 
 export default function App() {
-  const [players, setPlayers] = useState<string[]>([])
+  const [players, setPlayers] = useState<string[]>(loadPlayers)
   const [name, setName] = useState('')
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const [game, setGame] = useState<GameState>({ phase: 'setup' })
-  const [previousWord, setPreviousWord] = useState<string>()
+  const [usedWords, setUsedWords] = useState<string[]>([])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(PLAYERS_STORAGE_KEY, JSON.stringify(players))
+    } catch {
+      // The game remains playable when browser storage is unavailable.
+    }
+  }, [players])
 
   function addPlayer(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault()
@@ -51,8 +81,11 @@ export default function App() {
   function startRound(): void {
     if (players.length < MIN_PLAYERS) return
 
-    const round = createRound(players, previousWord)
-    setPreviousWord(round.entry.word)
+    const round = createRound(players, usedWords)
+    // A repeated word is possible only after the entire catalog is exhausted.
+    setUsedWords((current) =>
+      current.includes(round.entry.word) ? [round.entry.word] : [...current, round.entry.word],
+    )
     setGame({ phase: 'handoff', round, playerIndex: 0 })
   }
 
@@ -114,7 +147,12 @@ export default function App() {
         {game.phase === 'playing' ? (
           <section key="playing" className="panel round-panel">
             <h1>Hora de jogar!</h1>
-            <p className="muted">Todos receberam suas informações. Discutam as pistas e votem presencialmente.</p>
+            <p className="muted">Todos receberam suas informações.</p>
+            <div className="secret">
+              <p className="muted">Quem começa a falar</p>
+              <p className="secret-value">{round.players[round.startingPlayerIndex]}</p>
+            </div>
+            <p className="muted">Discutam as pistas e votem presencialmente.</p>
             <button
               type="button"
               className="primary full-width"
