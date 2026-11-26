@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
-import { createRound, getPlayerCard } from './game/round'
+import { createRound, getPlayerCard, wordKey } from './game/round'
 import type { Round } from './game/round'
 import { version } from '../package.json'
 import { watchForUpdate, applyUpdate } from './pwa'
 import SettingsPanel, { loadSettings, saveSettings, getWordPool } from './SettingsPanel'
+import { loadHistory, saveHistory } from './game/history'
+import { RevealButton, DiscussionTimer } from './RoundControls'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
@@ -42,7 +44,8 @@ export default function App() {
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const [game, setGame] = useState<GameState>({ phase: 'setup' })
-  const [usedWords, setUsedWords] = useState<readonly string[]>([])
+  const [history, setHistory] = useState(loadHistory)
+  useEffect(() => saveHistory(history), [history])
   const [settings, setSettings] = useState(loadSettings)
   useEffect(() => saveSettings(settings), [settings])
   const [updateWorker, setUpdateWorker] = useState<ServiceWorker | null>(null)
@@ -91,9 +94,20 @@ export default function App() {
 
     const pool = getWordPool(settings)
     if (!pool.length) return
-    const round = createRound(players, usedWords, { pool, clueEnabled: settings.clueEnabled })
-    setUsedWords(round.usedWords)
+    const round = createRound(players, history.usedWords, {
+      pool,
+      clueEnabled: settings.clueEnabled,
+      difficulty: settings.difficulty,
+      previousImpostor: history.previousImpostor,
+    })
+    setHistory({ usedWords: round.usedWords, previousImpostor: wordKey(round.players[round.impostorIndex]) })
     setGame({ phase: 'handoff', round, playerIndex: 0 })
+  }
+
+  function cancelRound(): void {
+    if (window.confirm('Cancelar esta rodada e voltar aos jogadores?')) {
+      setGame({ phase: 'setup' })
+    }
   }
 
   function revealCard(): void {
@@ -130,9 +144,7 @@ export default function App() {
             <p className="muted">Passe o celular para</p>
             <h1 className="player-name">{player}</h1>
             <p className="muted">Só este jogador deve olhar a tela.</p>
-            <button type="button" className="primary full-width" onClick={revealCard}>
-              Revelar minha informação
-            </button>
+            <RevealButton hold={settings.holdToReveal} onReveal={revealCard} />
           </section>
         ) : (
           <section key="card" className="panel round-panel">
@@ -143,6 +155,7 @@ export default function App() {
             </button>
           </section>
         )}
+        <button type="button" className="secondary cancel-round" onClick={cancelRound}>Cancelar rodada</button>
         <VersionFooter />
       </main>
     )
@@ -162,6 +175,7 @@ export default function App() {
               <p className="secret-value">{round.players[round.startingPlayerIndex]}</p>
             </div>
             <p className="muted">Discutam as pistas e votem presencialmente.</p>
+            {settings.timerSeconds > 0 && <DiscussionTimer seconds={settings.timerSeconds} />}
             <button
               type="button"
               className="primary full-width"
@@ -169,6 +183,7 @@ export default function App() {
             >
               Revelar impostor
             </button>
+            <button type="button" className="secondary full-width" onClick={cancelRound}>Cancelar rodada</button>
           </section>
         ) : (
           <section key="result" className="panel round-panel">

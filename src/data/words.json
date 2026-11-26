@@ -2,42 +2,154 @@
   {
     "category": "Animais",
     "word": "Pinguim",
-    "clue": "Frio"
+    "clue": "Frio",
+    "hints": {
+      "easy": [
+        "Antártida",
+        "Ave marinha"
+      ],
+      "medium": [
+        "Frio",
+        "Colônia"
+      ],
+      "hard": [
+        "Marcha",
+        "Isolamento"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Elefante",
-    "clue": "Memória"
+    "clue": "Memória",
+    "hints": {
+      "easy": [
+        "Tromba",
+        "Marfim"
+      ],
+      "medium": [
+        "Memória",
+        "Manada"
+      ],
+      "hard": [
+        "Longevidade",
+        "Peso"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Girafa",
-    "clue": "Altura"
+    "clue": "Altura",
+    "hints": {
+      "easy": [
+        "Pescoço",
+        "Savana"
+      ],
+      "medium": [
+        "Altura",
+        "Folhagem"
+      ],
+      "hard": [
+        "Perspectiva",
+        "Alcance"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Leão",
-    "clue": "Orgulho"
+    "clue": "Orgulho",
+    "hints": {
+      "easy": [
+        "Juba",
+        "Rugido"
+      ],
+      "medium": [
+        "Orgulho",
+        "Realeza"
+      ],
+      "hard": [
+        "Território",
+        "Domínio"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Onça-pintada",
-    "clue": "Manchas"
+    "clue": "Manchas",
+    "hints": {
+      "easy": [
+        "Felino",
+        "Pantanal"
+      ],
+      "medium": [
+        "Manchas",
+        "Camuflagem"
+      ],
+      "hard": [
+        "Emboscada",
+        "Solitude"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Capivara",
-    "clue": "Tranquilidade"
+    "clue": "Tranquilidade",
+    "hints": {
+      "easy": [
+        "Roedor",
+        "Beira de rio"
+      ],
+      "medium": [
+        "Tranquilidade",
+        "Convivência"
+      ],
+      "hard": [
+        "Tolerância",
+        "Grupo"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Morcego",
-    "clue": "Escuridão"
+    "clue": "Escuridão",
+    "hints": {
+      "easy": [
+        "Ecolocalização",
+        "Asas"
+      ],
+      "medium": [
+        "Escuridão",
+        "Caverna"
+      ],
+      "hard": [
+        "Inversão",
+        "Frequência"
+      ]
+    }
   },
   {
     "category": "Animais",
     "word": "Polvo",
-    "clue": "Flexibilidade"
+    "clue": "Flexibilidade",
+    "hints": {
+      "easy": [
+        "Tentáculos",
+        "Oito braços"
+      ],
+      "medium": [
+        "Flexibilidade",
+        "Camuflagem"
+      ],
+      "hard": [
+        "Inteligência",
+        "Fuga"
+      ]
+    }
   },
   {
     "category": "Animais",
@@ -102,42 +214,154 @@
   {
     "category": "Alimentos",
     "word": "Lasanha",
-    "clue": "Camadas"
+    "clue": "Camadas",
+    "hints": {
+      "easy": [
+        "Massa",
+        "Forno"
+      ],
+      "medium": [
+        "Camadas",
+        "Gratinado"
+      ],
+      "hard": [
+        "Montagem",
+        "Alternância"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Pizza",
-    "clue": "Fatias"
+    "clue": "Fatias",
+    "hints": {
+      "easy": [
+        "Queijo",
+        "Forno"
+      ],
+      "medium": [
+        "Fatias",
+        "Redonda"
+      ],
+      "hard": [
+        "Compartilhar",
+        "Entrega"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Sushi",
-    "clue": "Precisão"
+    "clue": "Precisão",
+    "hints": {
+      "easy": [
+        "Arroz",
+        "Peixe cru"
+      ],
+      "medium": [
+        "Precisão",
+        "Japão"
+      ],
+      "hard": [
+        "Equilíbrio",
+        "Delicadeza"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Hambúrguer",
-    "clue": "Combinação"
+    "clue": "Combinação",
+    "hints": {
+      "easy": [
+        "Pão",
+        "Carne"
+      ],
+      "medium": [
+        "Combinação",
+        "Lanchonete"
+      ],
+      "hard": [
+        "Empilhamento",
+        "Pressão"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Pastel",
-    "clue": "Feira"
+    "clue": "Feira",
+    "hints": {
+      "easy": [
+        "Fritura",
+        "Massa recheada"
+      ],
+      "medium": [
+        "Feira",
+        "Crocante"
+      ],
+      "hard": [
+        "Bolhas",
+        "Dobras"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Feijoada",
-    "clue": "Tradição"
+    "clue": "Tradição",
+    "hints": {
+      "easy": [
+        "Feijão preto",
+        "Carne de porco"
+      ],
+      "medium": [
+        "Tradição",
+        "Laranja"
+      ],
+      "hard": [
+        "Demora",
+        "Reunião"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Pão de queijo",
-    "clue": "Quentinho"
+    "clue": "Quentinho",
+    "hints": {
+      "easy": [
+        "Polvilho",
+        "Minas Gerais"
+      ],
+      "medium": [
+        "Quentinho",
+        "Forno"
+      ],
+      "hard": [
+        "Elasticidade",
+        "Aroma"
+      ]
+    }
   },
   {
     "category": "Alimentos",
     "word": "Brigadeiro",
-    "clue": "Festa"
+    "clue": "Festa",
+    "hints": {
+      "easy": [
+        "Chocolate",
+        "Leite condensado"
+      ],
+      "medium": [
+        "Festa",
+        "Granulado"
+      ],
+      "hard": [
+        "Enrolar",
+        "Ponto"
+      ]
+    }
   },
   {
     "category": "Alimentos",
@@ -202,42 +426,154 @@
   {
     "category": "Frutas e vegetais",
     "word": "Abacaxi",
-    "clue": "Coroa"
+    "clue": "Coroa",
+    "hints": {
+      "easy": [
+        "Casca espinhosa",
+        "Fruta tropical"
+      ],
+      "medium": [
+        "Coroa",
+        "Acidez"
+      ],
+      "hard": [
+        "Geometria",
+        "Proteção"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Melancia",
-    "clue": "Verão"
+    "clue": "Verão",
+    "hints": {
+      "easy": [
+        "Polpa vermelha",
+        "Fruta grande"
+      ],
+      "medium": [
+        "Verão",
+        "Sementes"
+      ],
+      "hard": [
+        "Hidratação",
+        "Peso"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Banana",
-    "clue": "Curva"
+    "clue": "Curva",
+    "hints": {
+      "easy": [
+        "Casca amarela",
+        "Cacho"
+      ],
+      "medium": [
+        "Curva",
+        "Maturação"
+      ],
+      "hard": [
+        "Energia",
+        "Portabilidade"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Morango",
-    "clue": "Delicadeza"
+    "clue": "Delicadeza",
+    "hints": {
+      "easy": [
+        "Fruta vermelha",
+        "Sobremesa"
+      ],
+      "medium": [
+        "Delicadeza",
+        "Sementes externas"
+      ],
+      "hard": [
+        "Sensibilidade",
+        "Temporada"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Manga",
-    "clue": "Fibra"
+    "clue": "Fibra",
+    "hints": {
+      "easy": [
+        "Caroço",
+        "Fruta tropical"
+      ],
+      "medium": [
+        "Fibra",
+        "Doçura"
+      ],
+      "hard": [
+        "Maturação",
+        "Textura"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Limão",
-    "clue": "Acidez"
+    "clue": "Acidez",
+    "hints": {
+      "easy": [
+        "Cítrico",
+        "Azeda"
+      ],
+      "medium": [
+        "Acidez",
+        "Tempero"
+      ],
+      "hard": [
+        "Equilíbrio",
+        "Conservação"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Uva",
-    "clue": "Cacho"
+    "clue": "Cacho",
+    "hints": {
+      "easy": [
+        "Vinho",
+        "Fruta em cacho"
+      ],
+      "medium": [
+        "Cacho",
+        "Vindima"
+      ],
+      "hard": [
+        "Agrupamento",
+        "Fermentação"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
     "word": "Coco",
-    "clue": "Praia"
+    "clue": "Praia",
+    "hints": {
+      "easy": [
+        "Água tropical",
+        "Casca dura"
+      ],
+      "medium": [
+        "Praia",
+        "Palmeira"
+      ],
+      "hard": [
+        "Flutuação",
+        "Resistência"
+      ]
+    }
   },
   {
     "category": "Frutas e vegetais",
@@ -302,42 +638,154 @@
   {
     "category": "Bebidas",
     "word": "Café",
-    "clue": "Despertar"
+    "clue": "Despertar",
+    "hints": {
+      "easy": [
+        "Grão torrado",
+        "Cafeína"
+      ],
+      "medium": [
+        "Despertar",
+        "Aroma"
+      ],
+      "hard": [
+        "Extração",
+        "Ritual"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Chá",
-    "clue": "Pausa"
+    "clue": "Pausa",
+    "hints": {
+      "easy": [
+        "Infusão",
+        "Folhas"
+      ],
+      "medium": [
+        "Pausa",
+        "Xícara"
+      ],
+      "hard": [
+        "Espera",
+        "Temperatura"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Suco de laranja",
-    "clue": "Manhã"
+    "clue": "Manhã",
+    "hints": {
+      "easy": [
+        "Cítrico",
+        "Espremedor"
+      ],
+      "medium": [
+        "Manhã",
+        "Vitamina C"
+      ],
+      "hard": [
+        "Polpa",
+        "Frescor"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Água de coco",
-    "clue": "Refresco"
+    "clue": "Refresco",
+    "hints": {
+      "easy": [
+        "Fruta tropical",
+        "Palmeira"
+      ],
+      "medium": [
+        "Refresco",
+        "Hidratação"
+      ],
+      "hard": [
+        "Transparência",
+        "Minerais"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Refrigerante",
-    "clue": "Bolhas"
+    "clue": "Bolhas",
+    "hints": {
+      "easy": [
+        "Gás",
+        "Bebida doce"
+      ],
+      "medium": [
+        "Bolhas",
+        "Lata"
+      ],
+      "hard": [
+        "Pressão",
+        "Estímulo"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Cerveja",
-    "clue": "Encontro"
+    "clue": "Encontro",
+    "hints": {
+      "easy": [
+        "Malte",
+        "Espuma"
+      ],
+      "medium": [
+        "Encontro",
+        "Fermentação"
+      ],
+      "hard": [
+        "Amargor",
+        "Maturação"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Vinho",
-    "clue": "Safra"
+    "clue": "Safra",
+    "hints": {
+      "easy": [
+        "Uvas",
+        "Adega"
+      ],
+      "medium": [
+        "Safra",
+        "Taça"
+      ],
+      "hard": [
+        "Tanino",
+        "Envelhecimento"
+      ]
+    }
   },
   {
     "category": "Bebidas",
     "word": "Caipirinha",
-    "clue": "Verão"
+    "clue": "Verão",
+    "hints": {
+      "easy": [
+        "Cachaça",
+        "Limão"
+      ],
+      "medium": [
+        "Verão",
+        "Pilão"
+      ],
+      "hard": [
+        "Equilíbrio",
+        "Mistura"
+      ]
+    }
   },
   {
     "category": "Bebidas",
@@ -402,42 +850,154 @@
   {
     "category": "Objetos domésticos",
     "word": "Espelho",
-    "clue": "Reflexo"
+    "clue": "Reflexo",
+    "hints": {
+      "easy": [
+        "Imagem invertida",
+        "Vidro"
+      ],
+      "medium": [
+        "Reflexo",
+        "Vaidade"
+      ],
+      "hard": [
+        "Simetria",
+        "Superfície"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Travesseiro",
-    "clue": "Conforto"
+    "clue": "Conforto",
+    "hints": {
+      "easy": [
+        "Cabeça",
+        "Sono"
+      ],
+      "medium": [
+        "Conforto",
+        "Maciez"
+      ],
+      "hard": [
+        "Suporte",
+        "Altura"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Cobertor",
-    "clue": "Proteção"
+    "clue": "Proteção",
+    "hints": {
+      "easy": [
+        "Frio",
+        "Cama"
+      ],
+      "medium": [
+        "Proteção",
+        "Aconchego"
+      ],
+      "hard": [
+        "Isolamento",
+        "Camadas"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Abajur",
-    "clue": "Penumbra"
+    "clue": "Penumbra",
+    "hints": {
+      "easy": [
+        "Lâmpada",
+        "Cabeceira"
+      ],
+      "medium": [
+        "Penumbra",
+        "Luz indireta"
+      ],
+      "hard": [
+        "Intimidade",
+        "Sombra"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Ventilador",
-    "clue": "Alívio"
+    "clue": "Alívio",
+    "hints": {
+      "easy": [
+        "Hélice",
+        "Vento"
+      ],
+      "medium": [
+        "Alívio",
+        "Calor"
+      ],
+      "hard": [
+        "Rotação",
+        "Circulação"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Vassoura",
-    "clue": "Limpeza"
+    "clue": "Limpeza",
+    "hints": {
+      "easy": [
+        "Cerdas",
+        "Varrer"
+      ],
+      "medium": [
+        "Limpeza",
+        "Poeira"
+      ],
+      "hard": [
+        "Atrito",
+        "Alcance"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Aspirador de pó",
-    "clue": "Sucção"
+    "clue": "Sucção",
+    "hints": {
+      "easy": [
+        "Poeira",
+        "Motor"
+      ],
+      "medium": [
+        "Sucção",
+        "Filtro"
+      ],
+      "hard": [
+        "Vácuo",
+        "Fluxo"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
     "word": "Relógio de parede",
-    "clue": "Rotina"
+    "clue": "Rotina",
+    "hints": {
+      "easy": [
+        "Ponteiros",
+        "Horas"
+      ],
+      "medium": [
+        "Rotina",
+        "Pontualidade"
+      ],
+      "hard": [
+        "Ciclo",
+        "Referência"
+      ]
+    }
   },
   {
     "category": "Objetos domésticos",
@@ -502,42 +1062,154 @@
   {
     "category": "Objetos pessoais",
     "word": "Guarda-chuva",
-    "clue": "Previsão"
+    "clue": "Previsão",
+    "hints": {
+      "easy": [
+        "Chuva",
+        "Varetas"
+      ],
+      "medium": [
+        "Previsão",
+        "Abrigo"
+      ],
+      "hard": [
+        "Antecipação",
+        "Abertura"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Carteira",
-    "clue": "Identidade"
+    "clue": "Identidade",
+    "hints": {
+      "easy": [
+        "Dinheiro",
+        "Cartões"
+      ],
+      "medium": [
+        "Identidade",
+        "Bolso"
+      ],
+      "hard": [
+        "Portabilidade",
+        "Reserva"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Chave",
-    "clue": "Acesso"
+    "clue": "Acesso",
+    "hints": {
+      "easy": [
+        "Fechadura",
+        "Porta"
+      ],
+      "medium": [
+        "Acesso",
+        "Segredo"
+      ],
+      "hard": [
+        "Encaixe",
+        "Permissão"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Óculos",
-    "clue": "Foco"
+    "clue": "Foco",
+    "hints": {
+      "easy": [
+        "Lentes",
+        "Visão"
+      ],
+      "medium": [
+        "Foco",
+        "Armação"
+      ],
+      "hard": [
+        "Correção",
+        "Nitidez"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Mochila",
-    "clue": "Bagagem"
+    "clue": "Bagagem",
+    "hints": {
+      "easy": [
+        "Costas",
+        "Alças"
+      ],
+      "medium": [
+        "Bagagem",
+        "Escola"
+      ],
+      "hard": [
+        "Distribuição",
+        "Capacidade"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Perfume",
-    "clue": "Presença"
+    "clue": "Presença",
+    "hints": {
+      "easy": [
+        "Fragrância",
+        "Frasco"
+      ],
+      "medium": [
+        "Presença",
+        "Aroma"
+      ],
+      "hard": [
+        "Evaporação",
+        "Memória"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Escova de dentes",
-    "clue": "Hábito"
+    "clue": "Hábito",
+    "hints": {
+      "easy": [
+        "Cerdas",
+        "Pasta dental"
+      ],
+      "medium": [
+        "Hábito",
+        "Higiene"
+      ],
+      "hard": [
+        "Fricção",
+        "Rotina"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
     "word": "Pente",
-    "clue": "Ordem"
+    "clue": "Ordem",
+    "hints": {
+      "easy": [
+        "Cabelo",
+        "Dentes finos"
+      ],
+      "medium": [
+        "Ordem",
+        "Desembaraçar"
+      ],
+      "hard": [
+        "Separação",
+        "Intervalo"
+      ]
+    }
   },
   {
     "category": "Objetos pessoais",
@@ -602,42 +1274,154 @@
   {
     "category": "Roupas e acessórios",
     "word": "Camiseta",
-    "clue": "Casual"
+    "clue": "Casual",
+    "hints": {
+      "easy": [
+        "Mangas",
+        "Algodão"
+      ],
+      "medium": [
+        "Casual",
+        "Estampa"
+      ],
+      "hard": [
+        "Identidade",
+        "Camada"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Calça jeans",
-    "clue": "Resistência"
+    "clue": "Resistência",
+    "hints": {
+      "easy": [
+        "Denim",
+        "Bolsos"
+      ],
+      "medium": [
+        "Resistência",
+        "Azul"
+      ],
+      "hard": [
+        "Desgaste",
+        "Textura"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Terno",
-    "clue": "Formalidade"
+    "clue": "Formalidade",
+    "hints": {
+      "easy": [
+        "Paletó",
+        "Cerimônia"
+      ],
+      "medium": [
+        "Formalidade",
+        "Elegância"
+      ],
+      "hard": [
+        "Estrutura",
+        "Protocolo"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Gravata",
-    "clue": "Protocolo"
+    "clue": "Protocolo",
+    "hints": {
+      "easy": [
+        "Pescoço",
+        "Nó"
+      ],
+      "medium": [
+        "Protocolo",
+        "Escritório"
+      ],
+      "hard": [
+        "Alinhamento",
+        "Contraste"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Vestido",
-    "clue": "Ocasião"
+    "clue": "Ocasião",
+    "hints": {
+      "easy": [
+        "Peça única",
+        "Saia"
+      ],
+      "medium": [
+        "Ocasião",
+        "Festa"
+      ],
+      "hard": [
+        "Silhueta",
+        "Caimento"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Meia",
-    "clue": "Par"
+    "clue": "Par",
+    "hints": {
+      "easy": [
+        "Pés",
+        "Calçado"
+      ],
+      "medium": [
+        "Par",
+        "Tecido"
+      ],
+      "hard": [
+        "Atrito",
+        "Elasticidade"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Tênis",
-    "clue": "Conforto"
+    "clue": "Conforto",
+    "hints": {
+      "easy": [
+        "Cadarço",
+        "Calçado esportivo"
+      ],
+      "medium": [
+        "Conforto",
+        "Sola"
+      ],
+      "hard": [
+        "Amortecimento",
+        "Aderência"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
     "word": "Chinelo",
-    "clue": "Informalidade"
+    "clue": "Informalidade",
+    "hints": {
+      "easy": [
+        "Tira",
+        "Praia"
+      ],
+      "medium": [
+        "Informalidade",
+        "Pés"
+      ],
+      "hard": [
+        "Ventilação",
+        "Praticidade"
+      ]
+    }
   },
   {
     "category": "Roupas e acessórios",
@@ -702,42 +1486,154 @@
   {
     "category": "Lugares",
     "word": "Biblioteca",
-    "clue": "Silêncio"
+    "clue": "Silêncio",
+    "hints": {
+      "easy": [
+        "Livros",
+        "Estantes"
+      ],
+      "medium": [
+        "Silêncio",
+        "Empréstimo"
+      ],
+      "hard": [
+        "Classificação",
+        "Acesso"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Hospital",
-    "clue": "Urgência"
+    "clue": "Urgência",
+    "hints": {
+      "easy": [
+        "Pacientes",
+        "Médicos"
+      ],
+      "medium": [
+        "Urgência",
+        "Internação"
+      ],
+      "hard": [
+        "Triagem",
+        "Recuperação"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Aeroporto",
-    "clue": "Espera"
+    "clue": "Espera",
+    "hints": {
+      "easy": [
+        "Embarque",
+        "Aviões"
+      ],
+      "medium": [
+        "Espera",
+        "Bagagem"
+      ],
+      "hard": [
+        "Conexão",
+        "Partida"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Cinema",
-    "clue": "Escuridão"
+    "clue": "Escuridão",
+    "hints": {
+      "easy": [
+        "Filme",
+        "Tela grande"
+      ],
+      "medium": [
+        "Escuridão",
+        "Pipoca"
+      ],
+      "hard": [
+        "Projeção",
+        "Imersão"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Cassino",
-    "clue": "Sorte"
+    "clue": "Sorte",
+    "hints": {
+      "easy": [
+        "Apostas",
+        "Fichas"
+      ],
+      "medium": [
+        "Sorte",
+        "Roleta"
+      ],
+      "hard": [
+        "Probabilidade",
+        "Risco"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Museu",
-    "clue": "Preservação"
+    "clue": "Preservação",
+    "hints": {
+      "easy": [
+        "Exposição",
+        "Artefatos"
+      ],
+      "medium": [
+        "Preservação",
+        "Acervo"
+      ],
+      "hard": [
+        "Curadoria",
+        "Memória"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Estádio",
-    "clue": "Multidão"
+    "clue": "Multidão",
+    "hints": {
+      "easy": [
+        "Arquibancada",
+        "Partida"
+      ],
+      "medium": [
+        "Multidão",
+        "Arena"
+      ],
+      "hard": [
+        "Eco",
+        "Pertencimento"
+      ]
+    }
   },
   {
     "category": "Lugares",
     "word": "Padaria",
-    "clue": "Manhã"
+    "clue": "Manhã",
+    "hints": {
+      "easy": [
+        "Pão",
+        "Forno"
+      ],
+      "medium": [
+        "Manhã",
+        "Balcão"
+      ],
+      "hard": [
+        "Fermentação",
+        "Rotina"
+      ]
+    }
   },
   {
     "category": "Lugares",
@@ -802,42 +1698,154 @@
   {
     "category": "Natureza",
     "word": "Vulcão",
-    "clue": "Pressão"
+    "clue": "Pressão",
+    "hints": {
+      "easy": [
+        "Lava",
+        "Cratera"
+      ],
+      "medium": [
+        "Pressão",
+        "Erupção"
+      ],
+      "hard": [
+        "Calor interno",
+        "Dormência"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Cachoeira",
-    "clue": "Queda"
+    "clue": "Queda",
+    "hints": {
+      "easy": [
+        "Água corrente",
+        "Queda d'água"
+      ],
+      "medium": [
+        "Queda",
+        "Espuma"
+      ],
+      "hard": [
+        "Desnível",
+        "Erosão"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Montanha",
-    "clue": "Desafio"
+    "clue": "Desafio",
+    "hints": {
+      "easy": [
+        "Pico",
+        "Altitude"
+      ],
+      "medium": [
+        "Desafio",
+        "Subida"
+      ],
+      "hard": [
+        "Relevo",
+        "Esforço"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Deserto",
-    "clue": "Escassez"
+    "clue": "Escassez",
+    "hints": {
+      "easy": [
+        "Areia",
+        "Seca"
+      ],
+      "medium": [
+        "Escassez",
+        "Oásis"
+      ],
+      "hard": [
+        "Amplitude",
+        "Escassez de água"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Floresta",
-    "clue": "Diversidade"
+    "clue": "Diversidade",
+    "hints": {
+      "easy": [
+        "Árvores",
+        "Vegetação"
+      ],
+      "medium": [
+        "Diversidade",
+        "Sombra"
+      ],
+      "hard": [
+        "Ecossistema",
+        "Umidade"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Oceano",
-    "clue": "Profundidade"
+    "clue": "Profundidade",
+    "hints": {
+      "easy": [
+        "Água salgada",
+        "Mar aberto"
+      ],
+      "medium": [
+        "Profundidade",
+        "Maré"
+      ],
+      "hard": [
+        "Correntes",
+        "Horizonte"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Ilha",
-    "clue": "Isolamento"
+    "clue": "Isolamento",
+    "hints": {
+      "easy": [
+        "Terra cercada de água",
+        "Arquipélago"
+      ],
+      "medium": [
+        "Isolamento",
+        "Travessia"
+      ],
+      "hard": [
+        "Fronteira",
+        "Autonomia"
+      ]
+    }
   },
   {
     "category": "Natureza",
     "word": "Caverna",
-    "clue": "Mistério"
+    "clue": "Mistério",
+    "hints": {
+      "easy": [
+        "Rocha",
+        "Subterrâneo"
+      ],
+      "medium": [
+        "Mistério",
+        "Eco"
+      ],
+      "hard": [
+        "Formação",
+        "Abrigo"
+      ]
+    }
   },
   {
     "category": "Natureza",
@@ -902,42 +1910,154 @@
   {
     "category": "Profissões",
     "word": "Médico",
-    "clue": "Diagnóstico"
+    "clue": "Diagnóstico",
+    "hints": {
+      "easy": [
+        "Consulta",
+        "Hospital"
+      ],
+      "medium": [
+        "Diagnóstico",
+        "Receita"
+      ],
+      "hard": [
+        "Avaliação",
+        "Responsabilidade"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Advogado",
-    "clue": "Defesa"
+    "clue": "Defesa",
+    "hints": {
+      "easy": [
+        "Tribunal",
+        "Cliente"
+      ],
+      "medium": [
+        "Defesa",
+        "Processo"
+      ],
+      "hard": [
+        "Argumentação",
+        "Representação"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Professor",
-    "clue": "Paciência"
+    "clue": "Paciência",
+    "hints": {
+      "easy": [
+        "Aula",
+        "Alunos"
+      ],
+      "medium": [
+        "Paciência",
+        "Quadro"
+      ],
+      "hard": [
+        "Transmissão",
+        "Método"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Bombeiro",
-    "clue": "Coragem"
+    "clue": "Coragem",
+    "hints": {
+      "easy": [
+        "Incêndio",
+        "Resgate"
+      ],
+      "medium": [
+        "Coragem",
+        "Mangueira"
+      ],
+      "hard": [
+        "Resposta",
+        "Pressão"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Piloto",
-    "clue": "Controle"
+    "clue": "Controle",
+    "hints": {
+      "easy": [
+        "Cabine",
+        "Aeronave"
+      ],
+      "medium": [
+        "Controle",
+        "Navegação"
+      ],
+      "hard": [
+        "Decisão",
+        "Instrumentos"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Astronauta",
-    "clue": "Isolamento"
+    "clue": "Isolamento",
+    "hints": {
+      "easy": [
+        "Espaço",
+        "Traje pressurizado"
+      ],
+      "medium": [
+        "Isolamento",
+        "Órbita"
+      ],
+      "hard": [
+        "Adaptação",
+        "Confinamento"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Arquiteto",
-    "clue": "Proporção"
+    "clue": "Proporção",
+    "hints": {
+      "easy": [
+        "Planta",
+        "Edifício"
+      ],
+      "medium": [
+        "Proporção",
+        "Projeto"
+      ],
+      "hard": [
+        "Circulação",
+        "Forma"
+      ]
+    }
   },
   {
     "category": "Profissões",
     "word": "Engenheiro",
-    "clue": "Solução"
+    "clue": "Solução",
+    "hints": {
+      "easy": [
+        "Cálculo",
+        "Projeto técnico"
+      ],
+      "medium": [
+        "Solução",
+        "Estrutura"
+      ],
+      "hard": [
+        "Otimização",
+        "Restrições"
+      ]
+    }
   },
   {
     "category": "Profissões",
@@ -1002,42 +2122,154 @@
   {
     "category": "Esportes",
     "word": "Futebol",
-    "clue": "Torcida"
+    "clue": "Torcida",
+    "hints": {
+      "easy": [
+        "Gol",
+        "Bola no pé"
+      ],
+      "medium": [
+        "Torcida",
+        "Campo"
+      ],
+      "hard": [
+        "Posicionamento",
+        "Espaço"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Basquete",
-    "clue": "Altura"
+    "clue": "Altura",
+    "hints": {
+      "easy": [
+        "Cesta",
+        "Quadra"
+      ],
+      "medium": [
+        "Altura",
+        "Drible"
+      ],
+      "hard": [
+        "Trajetória",
+        "Impulso"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Vôlei",
-    "clue": "Rede"
+    "clue": "Rede",
+    "hints": {
+      "easy": [
+        "Saque",
+        "Bloqueio"
+      ],
+      "medium": [
+        "Rede",
+        "Levantamento"
+      ],
+      "hard": [
+        "Sincronia",
+        "Cobertura"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Tênis de mesa",
-    "clue": "Reflexo"
+    "clue": "Reflexo",
+    "hints": {
+      "easy": [
+        "Raquete pequena",
+        "Mesa com rede"
+      ],
+      "medium": [
+        "Reflexo",
+        "Efeito"
+      ],
+      "hard": [
+        "Reação",
+        "Rotação"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Xadrez",
-    "clue": "Estratégia"
+    "clue": "Estratégia",
+    "hints": {
+      "easy": [
+        "Tabuleiro",
+        "Xeque"
+      ],
+      "medium": [
+        "Estratégia",
+        "Peças"
+      ],
+      "hard": [
+        "Antecipação",
+        "Sacrifício"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Natação",
-    "clue": "Respiração"
+    "clue": "Respiração",
+    "hints": {
+      "easy": [
+        "Piscina",
+        "Braçadas"
+      ],
+      "medium": [
+        "Respiração",
+        "Cloro"
+      ],
+      "hard": [
+        "Flutuação",
+        "Eficiência"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Boxe",
-    "clue": "Resistência"
+    "clue": "Resistência",
+    "hints": {
+      "easy": [
+        "Luvas",
+        "Ringue"
+      ],
+      "medium": [
+        "Resistência",
+        "Esquiva"
+      ],
+      "hard": [
+        "Distância",
+        "Cadência"
+      ]
+    }
   },
   {
     "category": "Esportes",
     "word": "Judô",
-    "clue": "Equilíbrio"
+    "clue": "Equilíbrio",
+    "hints": {
+      "easy": [
+        "Quimono",
+        "Tatame"
+      ],
+      "medium": [
+        "Equilíbrio",
+        "Projeção"
+      ],
+      "hard": [
+        "Alavanca",
+        "Centro de massa"
+      ]
+    }
   },
   {
     "category": "Esportes",
@@ -1102,42 +2334,154 @@
   {
     "category": "Transportes",
     "word": "Avião",
-    "clue": "Altitude"
+    "clue": "Altitude",
+    "hints": {
+      "easy": [
+        "Asas",
+        "Pista"
+      ],
+      "medium": [
+        "Altitude",
+        "Turbina"
+      ],
+      "hard": [
+        "Sustentação",
+        "Pressurização"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Helicóptero",
-    "clue": "Rotação"
+    "clue": "Rotação",
+    "hints": {
+      "easy": [
+        "Rotor",
+        "Pouso vertical"
+      ],
+      "medium": [
+        "Rotação",
+        "Resgate"
+      ],
+      "hard": [
+        "Estabilidade",
+        "Torque"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Trem",
-    "clue": "Trilhos"
+    "clue": "Trilhos",
+    "hints": {
+      "easy": [
+        "Vagões",
+        "Locomotiva"
+      ],
+      "medium": [
+        "Trilhos",
+        "Estação"
+      ],
+      "hard": [
+        "Inércia",
+        "Conexão"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Metrô",
-    "clue": "Subsolo"
+    "clue": "Subsolo",
+    "hints": {
+      "easy": [
+        "Estação urbana",
+        "Túnel"
+      ],
+      "medium": [
+        "Subsolo",
+        "Horário de pico"
+      ],
+      "hard": [
+        "Frequência",
+        "Fluxo"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Ônibus",
-    "clue": "Itinerário"
+    "clue": "Itinerário",
+    "hints": {
+      "easy": [
+        "Passageiros",
+        "Ponto"
+      ],
+      "medium": [
+        "Itinerário",
+        "Linha"
+      ],
+      "hard": [
+        "Lotação",
+        "Intervalo"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Táxi",
-    "clue": "Corrida"
+    "clue": "Corrida",
+    "hints": {
+      "easy": [
+        "Passageiro",
+        "Taxímetro"
+      ],
+      "medium": [
+        "Corrida",
+        "Destino"
+      ],
+      "hard": [
+        "Disponibilidade",
+        "Tarifa"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Bicicleta",
-    "clue": "Equilíbrio"
+    "clue": "Equilíbrio",
+    "hints": {
+      "easy": [
+        "Pedais",
+        "Duas rodas"
+      ],
+      "medium": [
+        "Equilíbrio",
+        "Marcha"
+      ],
+      "hard": [
+        "Tração",
+        "Cadência"
+      ]
+    }
   },
   {
     "category": "Transportes",
     "word": "Motocicleta",
-    "clue": "Capacete"
+    "clue": "Capacete",
+    "hints": {
+      "easy": [
+        "Motor",
+        "Duas rodas"
+      ],
+      "medium": [
+        "Capacete",
+        "Guidão"
+      ],
+      "hard": [
+        "Inclinação",
+        "Agilidade"
+      ]
+    }
   },
   {
     "category": "Transportes",
@@ -1202,42 +2546,154 @@
   {
     "category": "Tecnologia",
     "word": "Bluetooth",
-    "clue": "Proximidade"
+    "clue": "Proximidade",
+    "hints": {
+      "easy": [
+        "Conexão sem fio",
+        "Emparelhamento"
+      ],
+      "medium": [
+        "Proximidade",
+        "Fones sem fio"
+      ],
+      "hard": [
+        "Compatibilidade",
+        "Frequência"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Wi-Fi",
-    "clue": "Alcance"
+    "clue": "Alcance",
+    "hints": {
+      "easy": [
+        "Roteador",
+        "Rede sem fio"
+      ],
+      "medium": [
+        "Alcance",
+        "Sinal"
+      ],
+      "hard": [
+        "Interferência",
+        "Cobertura"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Internet",
-    "clue": "Rede"
+    "clue": "Rede",
+    "hints": {
+      "easy": [
+        "Sites",
+        "Conexão mundial"
+      ],
+      "medium": [
+        "Rede",
+        "Navegação"
+      ],
+      "hard": [
+        "Distribuição",
+        "Protocolo"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Teclado",
-    "clue": "Atalho"
+    "clue": "Atalho",
+    "hints": {
+      "easy": [
+        "Teclas",
+        "Digitação"
+      ],
+      "medium": [
+        "Atalho",
+        "Layout"
+      ],
+      "hard": [
+        "Entrada",
+        "Sequência"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Mouse",
-    "clue": "Movimento"
+    "clue": "Movimento",
+    "hints": {
+      "easy": [
+        "Cursor",
+        "Clique"
+      ],
+      "medium": [
+        "Movimento",
+        "Rolagem"
+      ],
+      "hard": [
+        "Sensibilidade",
+        "Precisão"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Monitor",
-    "clue": "Exibição"
+    "clue": "Exibição",
+    "hints": {
+      "easy": [
+        "Tela",
+        "Imagem"
+      ],
+      "medium": [
+        "Exibição",
+        "Resolução"
+      ],
+      "hard": [
+        "Atualização",
+        "Contraste"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Impressora",
-    "clue": "Cópia"
+    "clue": "Cópia",
+    "hints": {
+      "easy": [
+        "Papel",
+        "Tinta"
+      ],
+      "medium": [
+        "Cópia",
+        "Cartucho"
+      ],
+      "hard": [
+        "Fila",
+        "Transferência"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
     "word": "Drone",
-    "clue": "Perspectiva"
+    "clue": "Perspectiva",
+    "hints": {
+      "easy": [
+        "Hélices",
+        "Voo remoto"
+      ],
+      "medium": [
+        "Perspectiva",
+        "Vista aérea"
+      ],
+      "hard": [
+        "Autonomia",
+        "Estabilização"
+      ]
+    }
   },
   {
     "category": "Tecnologia",
@@ -1302,42 +2758,154 @@
   {
     "category": "Música",
     "word": "Violão",
-    "clue": "Serenata"
+    "clue": "Serenata",
+    "hints": {
+      "easy": [
+        "Cordas",
+        "Acústico"
+      ],
+      "medium": [
+        "Serenata",
+        "Acordes"
+      ],
+      "hard": [
+        "Ressonância",
+        "Dedilhado"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Piano",
-    "clue": "Harmonia"
+    "clue": "Harmonia",
+    "hints": {
+      "easy": [
+        "Teclas",
+        "Martelos"
+      ],
+      "medium": [
+        "Harmonia",
+        "Recital"
+      ],
+      "hard": [
+        "Dinâmica",
+        "Tessitura"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Bateria",
-    "clue": "Ritmo"
+    "clue": "Ritmo",
+    "hints": {
+      "easy": [
+        "Pratos",
+        "Baquetas"
+      ],
+      "medium": [
+        "Ritmo",
+        "Percussão"
+      ],
+      "hard": [
+        "Independência",
+        "Pulso"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Flauta",
-    "clue": "Sopro"
+    "clue": "Sopro",
+    "hints": {
+      "easy": [
+        "Tubo",
+        "Instrumento de sopro"
+      ],
+      "medium": [
+        "Sopro",
+        "Melodia"
+      ],
+      "hard": [
+        "Coluna de ar",
+        "Controle"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Violino",
-    "clue": "Expressão"
+    "clue": "Expressão",
+    "hints": {
+      "easy": [
+        "Arco",
+        "Quatro cordas"
+      ],
+      "medium": [
+        "Expressão",
+        "Orquestra"
+      ],
+      "hard": [
+        "Afinação",
+        "Fricção"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Saxofone",
-    "clue": "Improviso"
+    "clue": "Improviso",
+    "hints": {
+      "easy": [
+        "Palheta",
+        "Metal"
+      ],
+      "medium": [
+        "Improviso",
+        "Jazz"
+      ],
+      "hard": [
+        "Timbre",
+        "Respiração"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Trompete",
-    "clue": "Brilho"
+    "clue": "Brilho",
+    "hints": {
+      "easy": [
+        "Bocal",
+        "Válvulas"
+      ],
+      "medium": [
+        "Brilho",
+        "Fanfarra"
+      ],
+      "hard": [
+        "Pressão",
+        "Articulação"
+      ]
+    }
   },
   {
     "category": "Música",
     "word": "Acordeão",
-    "clue": "Festa"
+    "clue": "Festa",
+    "hints": {
+      "easy": [
+        "Fole",
+        "Teclas"
+      ],
+      "medium": [
+        "Festa",
+        "Forró"
+      ],
+      "hard": [
+        "Expansão",
+        "Alternância"
+      ]
+    }
   },
   {
     "category": "Música",
@@ -1402,42 +2970,154 @@
   {
     "category": "Filmes e personagens",
     "word": "Harry Potter",
-    "clue": "Escola"
+    "clue": "Escola",
+    "hints": {
+      "easy": [
+        "Hogwarts",
+        "Varinha"
+      ],
+      "medium": [
+        "Escola",
+        "Magia"
+      ],
+      "hard": [
+        "Escolha",
+        "Lealdade"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Batman",
-    "clue": "Noite"
+    "clue": "Noite",
+    "hints": {
+      "easy": [
+        "Gotham",
+        "Morcego"
+      ],
+      "medium": [
+        "Noite",
+        "Vigilante"
+      ],
+      "hard": [
+        "Trauma",
+        "Identidade"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Superman",
-    "clue": "Esperança"
+    "clue": "Esperança",
+    "hints": {
+      "easy": [
+        "Krypton",
+        "Capa vermelha"
+      ],
+      "medium": [
+        "Esperança",
+        "Jornalista"
+      ],
+      "hard": [
+        "Disfarce",
+        "Responsabilidade"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Homem-Aranha",
-    "clue": "Responsabilidade"
+    "clue": "Responsabilidade",
+    "hints": {
+      "easy": [
+        "Teias",
+        "Peter Parker"
+      ],
+      "medium": [
+        "Responsabilidade",
+        "Agilidade"
+      ],
+      "hard": [
+        "Culpa",
+        "Equilíbrio"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Shrek",
-    "clue": "Preconceito"
+    "clue": "Preconceito",
+    "hints": {
+      "easy": [
+        "Ogro verde",
+        "Pântano"
+      ],
+      "medium": [
+        "Preconceito",
+        "Burro"
+      ],
+      "hard": [
+        "Autoaceitação",
+        "Isolamento"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Titanic",
-    "clue": "Separação"
+    "clue": "Separação",
+    "hints": {
+      "easy": [
+        "Navio",
+        "Iceberg"
+      ],
+      "medium": [
+        "Separação",
+        "Travessia"
+      ],
+      "hard": [
+        "Classe social",
+        "Memória"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "Jurassic Park",
-    "clue": "Experimento"
+    "clue": "Experimento",
+    "hints": {
+      "easy": [
+        "Dinossauros",
+        "Parque"
+      ],
+      "medium": [
+        "Experimento",
+        "Clonagem"
+      ],
+      "hard": [
+        "Controle",
+        "Imprevisibilidade"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
     "word": "O Senhor dos Anéis",
-    "clue": "Jornada"
+    "clue": "Jornada",
+    "hints": {
+      "easy": [
+        "Terra Média",
+        "Hobbits"
+      ],
+      "medium": [
+        "Jornada",
+        "Anel"
+      ],
+      "hard": [
+        "Tentação",
+        "Sacrifício"
+      ]
+    }
   },
   {
     "category": "Filmes e personagens",
@@ -1502,42 +3182,154 @@
   {
     "category": "Jogos e brincadeiras",
     "word": "Esconde-esconde",
-    "clue": "Silêncio"
+    "clue": "Silêncio",
+    "hints": {
+      "easy": [
+        "Esconderijo",
+        "Contagem"
+      ],
+      "medium": [
+        "Silêncio",
+        "Busca"
+      ],
+      "hard": [
+        "Visibilidade",
+        "Paciência"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Pega-pega",
-    "clue": "Perseguição"
+    "clue": "Perseguição",
+    "hints": {
+      "easy": [
+        "Correr",
+        "Encostar"
+      ],
+      "medium": [
+        "Perseguição",
+        "Fuga"
+      ],
+      "hard": [
+        "Reação",
+        "Proximidade"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Amarelinha",
-    "clue": "Equilíbrio"
+    "clue": "Equilíbrio",
+    "hints": {
+      "easy": [
+        "Quadrados no chão",
+        "Pular com um pé"
+      ],
+      "medium": [
+        "Equilíbrio",
+        "Pedrinha"
+      ],
+      "hard": [
+        "Sequência",
+        "Precisão"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Pular corda",
-    "clue": "Ritmo"
+    "clue": "Ritmo",
+    "hints": {
+      "easy": [
+        "Corda girando",
+        "Saltos"
+      ],
+      "medium": [
+        "Ritmo",
+        "Coordenação"
+      ],
+      "hard": [
+        "Resistência",
+        "Sincronia"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Queimada",
-    "clue": "Desvio"
+    "clue": "Desvio",
+    "hints": {
+      "easy": [
+        "Bola",
+        "Acertar adversário"
+      ],
+      "medium": [
+        "Desvio",
+        "Quadra"
+      ],
+      "hard": [
+        "Eliminação",
+        "Espaço"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Verdade ou desafio",
-    "clue": "Coragem"
+    "clue": "Coragem",
+    "hints": {
+      "easy": [
+        "Perguntas",
+        "Escolhas"
+      ],
+      "medium": [
+        "Coragem",
+        "Segredos"
+      ],
+      "hard": [
+        "Pressão",
+        "Exposição"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Mímica",
-    "clue": "Expressão"
+    "clue": "Expressão",
+    "hints": {
+      "easy": [
+        "Gestos",
+        "Sem falar"
+      ],
+      "medium": [
+        "Expressão",
+        "Adivinhar"
+      ],
+      "hard": [
+        "Representação",
+        "Limitação"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
     "word": "Banco Imobiliário",
-    "clue": "Patrimônio"
+    "clue": "Patrimônio",
+    "hints": {
+      "easy": [
+        "Aluguel",
+        "Propriedades"
+      ],
+      "medium": [
+        "Patrimônio",
+        "Dinheiro fictício"
+      ],
+      "hard": [
+        "Negociação",
+        "Acumulação"
+      ]
+    }
   },
   {
     "category": "Jogos e brincadeiras",
@@ -1602,42 +3394,154 @@
   {
     "category": "Eventos e situações",
     "word": "Casamento",
-    "clue": "Promessa"
+    "clue": "Promessa",
+    "hints": {
+      "easy": [
+        "Noivos",
+        "Alianças"
+      ],
+      "medium": [
+        "Promessa",
+        "Cerimônia"
+      ],
+      "hard": [
+        "Compromisso",
+        "Testemunhas"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Aniversário",
-    "clue": "Celebração"
+    "clue": "Celebração",
+    "hints": {
+      "easy": [
+        "Bolo",
+        "Velas"
+      ],
+      "medium": [
+        "Celebração",
+        "Presente"
+      ],
+      "hard": [
+        "Ciclo",
+        "Reconhecimento"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Formatura",
-    "clue": "Conquista"
+    "clue": "Conquista",
+    "hints": {
+      "easy": [
+        "Diploma",
+        "Beca"
+      ],
+      "medium": [
+        "Conquista",
+        "Colação"
+      ],
+      "hard": [
+        "Encerramento",
+        "Transição"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Carnaval",
-    "clue": "Fantasia"
+    "clue": "Fantasia",
+    "hints": {
+      "easy": [
+        "Blocos",
+        "Desfiles"
+      ],
+      "medium": [
+        "Fantasia",
+        "Máscaras"
+      ],
+      "hard": [
+        "Excesso",
+        "Inversão"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Réveillon",
-    "clue": "Recomeço"
+    "clue": "Recomeço",
+    "hints": {
+      "easy": [
+        "Virada do ano",
+        "Meia-noite"
+      ],
+      "medium": [
+        "Recomeço",
+        "Fogos"
+      ],
+      "hard": [
+        "Contagem",
+        "Expectativa"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Natal",
-    "clue": "Reunião"
+    "clue": "Reunião",
+    "hints": {
+      "easy": [
+        "Árvore decorada",
+        "Papai Noel"
+      ],
+      "medium": [
+        "Reunião",
+        "Ceia"
+      ],
+      "hard": [
+        "Generosidade",
+        "Reencontro"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Festa junina",
-    "clue": "Tradição"
+    "clue": "Tradição",
+    "hints": {
+      "easy": [
+        "Bandeirinhas",
+        "Quadrilha"
+      ],
+      "medium": [
+        "Tradição",
+        "Milho"
+      ],
+      "hard": [
+        "Sazonalidade",
+        "Comunidade"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
     "word": "Piquenique",
-    "clue": "Grama"
+    "clue": "Grama",
+    "hints": {
+      "easy": [
+        "Toalha na grama",
+        "Cesta"
+      ],
+      "medium": [
+        "Grama",
+        "Parque"
+      ],
+      "hard": [
+        "Improviso",
+        "Convivência"
+      ]
+    }
   },
   {
     "category": "Eventos e situações",
@@ -1702,42 +3606,154 @@
   {
     "category": "Sentimentos e conceitos",
     "word": "Saudade",
-    "clue": "Distância"
+    "clue": "Distância",
+    "hints": {
+      "easy": [
+        "Sentir falta",
+        "Lembranças"
+      ],
+      "medium": [
+        "Distância",
+        "Ausência"
+      ],
+      "hard": [
+        "Permanência",
+        "Vínculo"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Ciúme",
-    "clue": "Insegurança"
+    "clue": "Insegurança",
+    "hints": {
+      "easy": [
+        "Rival",
+        "Possessividade"
+      ],
+      "medium": [
+        "Insegurança",
+        "Relacionamento"
+      ],
+      "hard": [
+        "Comparação",
+        "Ameaça percebida"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Orgulho",
-    "clue": "Conquista"
+    "clue": "Conquista",
+    "hints": {
+      "easy": [
+        "Satisfação pessoal",
+        "Mérito"
+      ],
+      "medium": [
+        "Conquista",
+        "Autoestima"
+      ],
+      "hard": [
+        "Reconhecimento",
+        "Identidade"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Vergonha",
-    "clue": "Exposição"
+    "clue": "Exposição",
+    "hints": {
+      "easy": [
+        "Constrangimento",
+        "Querer sumir"
+      ],
+      "medium": [
+        "Exposição",
+        "Rubor"
+      ],
+      "hard": [
+        "Julgamento",
+        "Vulnerabilidade"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Medo",
-    "clue": "Ameaça"
+    "clue": "Ameaça",
+    "hints": {
+      "easy": [
+        "Perigo",
+        "Susto"
+      ],
+      "medium": [
+        "Ameaça",
+        "Proteção"
+      ],
+      "hard": [
+        "Antecipação",
+        "Paralisia"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Alegria",
-    "clue": "Contágio"
+    "clue": "Contágio",
+    "hints": {
+      "easy": [
+        "Sorriso",
+        "Felicidade"
+      ],
+      "medium": [
+        "Contágio",
+        "Celebração"
+      ],
+      "hard": [
+        "Leveza",
+        "Contágio emocional"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Tristeza",
-    "clue": "Perda"
+    "clue": "Perda",
+    "hints": {
+      "easy": [
+        "Choro",
+        "Desânimo"
+      ],
+      "medium": [
+        "Perda",
+        "Melancolia"
+      ],
+      "hard": [
+        "Recolhimento",
+        "Ausência"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
     "word": "Raiva",
-    "clue": "Impulso"
+    "clue": "Impulso",
+    "hints": {
+      "easy": [
+        "Irritação",
+        "Fúria"
+      ],
+      "medium": [
+        "Impulso",
+        "Conflito"
+      ],
+      "hard": [
+        "Limite",
+        "Frustração"
+      ]
+    }
   },
   {
     "category": "Sentimentos e conceitos",
@@ -1802,42 +3818,154 @@
   {
     "category": "Países e cidades",
     "word": "Brasil",
-    "clue": "Diversidade"
+    "clue": "Diversidade",
+    "hints": {
+      "easy": [
+        "América do Sul",
+        "Brasília"
+      ],
+      "medium": [
+        "Diversidade",
+        "Carnaval"
+      ],
+      "hard": [
+        "Dimensão",
+        "Mistura"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Argentina",
-    "clue": "Rivalidade"
+    "clue": "Rivalidade",
+    "hints": {
+      "easy": [
+        "Buenos Aires",
+        "Tango"
+      ],
+      "medium": [
+        "Rivalidade",
+        "Patagônia"
+      ],
+      "hard": [
+        "Prata",
+        "Vizinhança"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Japão",
-    "clue": "Disciplina"
+    "clue": "Disciplina",
+    "hints": {
+      "easy": [
+        "Tóquio",
+        "Arquipélago asiático"
+      ],
+      "medium": [
+        "Disciplina",
+        "Sakura"
+      ],
+      "hard": [
+        "Ritual",
+        "Insularidade"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Itália",
-    "clue": "Tradição"
+    "clue": "Tradição",
+    "hints": {
+      "easy": [
+        "Roma",
+        "Península europeia"
+      ],
+      "medium": [
+        "Tradição",
+        "Renascimento"
+      ],
+      "hard": [
+        "Regionalidade",
+        "Legado"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "França",
-    "clue": "Elegância"
+    "clue": "Elegância",
+    "hints": {
+      "easy": [
+        "Paris",
+        "Torre Eiffel"
+      ],
+      "medium": [
+        "Elegância",
+        "Gastronomia"
+      ],
+      "hard": [
+        "Centralização",
+        "Revolução"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Egito",
-    "clue": "Antiguidade"
+    "clue": "Antiguidade",
+    "hints": {
+      "easy": [
+        "Nilo",
+        "Pirâmides"
+      ],
+      "medium": [
+        "Antiguidade",
+        "Faraós"
+      ],
+      "hard": [
+        "Continuidade",
+        "Delta"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Grécia",
-    "clue": "Mitologia"
+    "clue": "Mitologia",
+    "hints": {
+      "easy": [
+        "Atenas",
+        "Ilhas do Egeu"
+      ],
+      "medium": [
+        "Mitologia",
+        "Filosofia"
+      ],
+      "hard": [
+        "Cidadania",
+        "Herança"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
     "word": "Austrália",
-    "clue": "Distância"
+    "clue": "Distância",
+    "hints": {
+      "easy": [
+        "Canguru",
+        "Oceania"
+      ],
+      "medium": [
+        "Distância",
+        "Grande Barreira de Coral"
+      ],
+      "hard": [
+        "Endemismo",
+        "Isolamento"
+      ]
+    }
   },
   {
     "category": "Países e cidades",
@@ -1902,42 +4030,154 @@
   {
     "category": "Ciência e espaço",
     "word": "Lua",
-    "clue": "Ciclo"
+    "clue": "Ciclo",
+    "hints": {
+      "easy": [
+        "Satélite natural",
+        "Fases"
+      ],
+      "medium": [
+        "Ciclo",
+        "Marés"
+      ],
+      "hard": [
+        "Reflexão",
+        "Sincronismo"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Sol",
-    "clue": "Energia"
+    "clue": "Energia",
+    "hints": {
+      "easy": [
+        "Estrela",
+        "Luz do dia"
+      ],
+      "medium": [
+        "Energia",
+        "Calor"
+      ],
+      "hard": [
+        "Fusão",
+        "Centralidade"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Marte",
-    "clue": "Exploração"
+    "clue": "Exploração",
+    "hints": {
+      "easy": [
+        "Planeta vermelho",
+        "Robôs exploradores"
+      ],
+      "medium": [
+        "Exploração",
+        "Deserto"
+      ],
+      "hard": [
+        "Oxidação",
+        "Ambição"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Saturno",
-    "clue": "Órbita"
+    "clue": "Órbita",
+    "hints": {
+      "easy": [
+        "Anéis",
+        "Planeta gasoso"
+      ],
+      "medium": [
+        "Órbita",
+        "Titã"
+      ],
+      "hard": [
+        "Densidade",
+        "Estrutura"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Buraco negro",
-    "clue": "Gravidade"
+    "clue": "Gravidade",
+    "hints": {
+      "easy": [
+        "Horizonte de eventos",
+        "Colapso estelar"
+      ],
+      "medium": [
+        "Gravidade",
+        "Singularidade"
+      ],
+      "hard": [
+        "Limite",
+        "Curvatura"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Cometa",
-    "clue": "Passagem"
+    "clue": "Passagem",
+    "hints": {
+      "easy": [
+        "Cauda",
+        "Gelo espacial"
+      ],
+      "medium": [
+        "Passagem",
+        "Órbita alongada"
+      ],
+      "hard": [
+        "Sublimação",
+        "Retorno"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Asteroide",
-    "clue": "Impacto"
+    "clue": "Impacto",
+    "hints": {
+      "easy": [
+        "Rocha espacial",
+        "Cinturão"
+      ],
+      "medium": [
+        "Impacto",
+        "Órbita"
+      ],
+      "hard": [
+        "Fragmento",
+        "Trajetória"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
     "word": "Galáxia",
-    "clue": "Escala"
+    "clue": "Escala",
+    "hints": {
+      "easy": [
+        "Bilhões de estrelas",
+        "Via Láctea"
+      ],
+      "medium": [
+        "Escala",
+        "Espiral"
+      ],
+      "hard": [
+        "Distribuição",
+        "Rotação"
+      ]
+    }
   },
   {
     "category": "Ciência e espaço",
@@ -2002,42 +4242,154 @@
   {
     "category": "Cotidiano e hábitos",
     "word": "Ressaca",
-    "clue": "Arrependimento"
+    "clue": "Arrependimento",
+    "hints": {
+      "easy": [
+        "Dor de cabeça",
+        "Dia seguinte"
+      ],
+      "medium": [
+        "Arrependimento",
+        "Desidratação"
+      ],
+      "hard": [
+        "Consequência",
+        "Excesso"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Despertador",
-    "clue": "Interrupção"
+    "clue": "Interrupção",
+    "hints": {
+      "easy": [
+        "Alarme",
+        "Acordar"
+      ],
+      "medium": [
+        "Interrupção",
+        "Horário"
+      ],
+      "hard": [
+        "Obrigação",
+        "Antecipação"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Soneca",
-    "clue": "Adiamento"
+    "clue": "Adiamento",
+    "hints": {
+      "easy": [
+        "Cochilo",
+        "Sono breve"
+      ],
+      "medium": [
+        "Adiamento",
+        "Descanso"
+      ],
+      "hard": [
+        "Intervalo",
+        "Recuperação"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Home office",
-    "clue": "Flexibilidade"
+    "clue": "Flexibilidade",
+    "hints": {
+      "easy": [
+        "Trabalho remoto",
+        "Computador em casa"
+      ],
+      "medium": [
+        "Flexibilidade",
+        "Videoconferência"
+      ],
+      "hard": [
+        "Fronteira",
+        "Autonomia"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Faxina",
-    "clue": "Organização"
+    "clue": "Organização",
+    "hints": {
+      "easy": [
+        "Limpeza geral",
+        "Vassoura"
+      ],
+      "medium": [
+        "Organização",
+        "Poeira"
+      ],
+      "hard": [
+        "Renovação",
+        "Esforço"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Compras do mês",
-    "clue": "Planejamento"
+    "clue": "Planejamento",
+    "hints": {
+      "easy": [
+        "Supermercado",
+        "Carrinho cheio"
+      ],
+      "medium": [
+        "Planejamento",
+        "Estoque"
+      ],
+      "hard": [
+        "Previsão",
+        "Orçamento"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Café da manhã",
-    "clue": "Começo"
+    "clue": "Começo",
+    "hints": {
+      "easy": [
+        "Primeira refeição",
+        "Pão e café"
+      ],
+      "medium": [
+        "Começo",
+        "Desjejum"
+      ],
+      "hard": [
+        "Ritual",
+        "Energia"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
     "word": "Delivery",
-    "clue": "Conveniência"
+    "clue": "Conveniência",
+    "hints": {
+      "easy": [
+        "Entrega",
+        "Pedido pelo aplicativo"
+      ],
+      "medium": [
+        "Conveniência",
+        "Motoboy"
+      ],
+      "hard": [
+        "Comodidade",
+        "Logística"
+      ]
+    }
   },
   {
     "category": "Cotidiano e hábitos",
@@ -2102,42 +4454,154 @@
   {
     "category": "Ficção e fantasia",
     "word": "Dragão",
-    "clue": "Tesouro"
+    "clue": "Tesouro",
+    "hints": {
+      "easy": [
+        "Criatura alada",
+        "Fogo"
+      ],
+      "medium": [
+        "Tesouro",
+        "Escamas"
+      ],
+      "hard": [
+        "Guarda",
+        "Poder"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Vampiro",
-    "clue": "Noite"
+    "clue": "Noite",
+    "hints": {
+      "easy": [
+        "Sangue",
+        "Presas"
+      ],
+      "medium": [
+        "Noite",
+        "Imortalidade"
+      ],
+      "hard": [
+        "Convite",
+        "Dependência"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Lobisomem",
-    "clue": "Transformação"
+    "clue": "Transformação",
+    "hints": {
+      "easy": [
+        "Lua cheia",
+        "Homem-lobo"
+      ],
+      "medium": [
+        "Transformação",
+        "Maldição"
+      ],
+      "hard": [
+        "Ciclo",
+        "Instinto"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Zumbi",
-    "clue": "Multidão"
+    "clue": "Multidão",
+    "hints": {
+      "easy": [
+        "Mortos-vivos",
+        "Apocalipse"
+      ],
+      "medium": [
+        "Multidão",
+        "Infecção"
+      ],
+      "hard": [
+        "Perda de identidade",
+        "Persistência"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Fantasma",
-    "clue": "Presença"
+    "clue": "Presença",
+    "hints": {
+      "easy": [
+        "Espírito",
+        "Assombração"
+      ],
+      "medium": [
+        "Presença",
+        "Transparência"
+      ],
+      "hard": [
+        "Memória",
+        "Ausência"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Fada",
-    "clue": "Encanto"
+    "clue": "Encanto",
+    "hints": {
+      "easy": [
+        "Asas pequenas",
+        "Pó mágico"
+      ],
+      "medium": [
+        "Encanto",
+        "Desejos"
+      ],
+      "hard": [
+        "Delicadeza",
+        "Intervenção"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Bruxa",
-    "clue": "Ritual"
+    "clue": "Ritual",
+    "hints": {
+      "easy": [
+        "Feitiço",
+        "Caldeirão"
+      ],
+      "medium": [
+        "Ritual",
+        "Vassoura"
+      ],
+      "hard": [
+        "Conhecimento",
+        "Marginalidade"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
     "word": "Sereia",
-    "clue": "Sedução"
+    "clue": "Sedução",
+    "hints": {
+      "easy": [
+        "Cauda de peixe",
+        "Canto"
+      ],
+      "medium": [
+        "Sedução",
+        "Mar"
+      ],
+      "hard": [
+        "Fascínio",
+        "Dualidade"
+      ]
+    }
   },
   {
     "category": "Ficção e fantasia",
@@ -2202,42 +4666,154 @@
   {
     "category": "Ferramentas e construção",
     "word": "Martelo",
-    "clue": "Impacto"
+    "clue": "Impacto",
+    "hints": {
+      "easy": [
+        "Prego",
+        "Batida"
+      ],
+      "medium": [
+        "Impacto",
+        "Cabo"
+      ],
+      "hard": [
+        "Impulso",
+        "Força"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Chave de fenda",
-    "clue": "Ajuste"
+    "clue": "Ajuste",
+    "hints": {
+      "easy": [
+        "Parafuso com fenda",
+        "Ponta plana"
+      ],
+      "medium": [
+        "Ajuste",
+        "Rosca"
+      ],
+      "hard": [
+        "Torque",
+        "Alinhamento"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Alicate",
-    "clue": "Pressão"
+    "clue": "Pressão",
+    "hints": {
+      "easy": [
+        "Mandíbulas",
+        "Segurar fios"
+      ],
+      "medium": [
+        "Pressão",
+        "Articulação"
+      ],
+      "hard": [
+        "Alavanca",
+        "Aderência"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Serrote",
-    "clue": "Divisão"
+    "clue": "Divisão",
+    "hints": {
+      "easy": [
+        "Dentes",
+        "Cortar madeira"
+      ],
+      "medium": [
+        "Divisão",
+        "Lâmina"
+      ],
+      "hard": [
+        "Atrito",
+        "Repetição"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Furadeira",
-    "clue": "Perfuração"
+    "clue": "Perfuração",
+    "hints": {
+      "easy": [
+        "Broca",
+        "Fazer furos"
+      ],
+      "medium": [
+        "Perfuração",
+        "Parede"
+      ],
+      "hard": [
+        "Rotação",
+        "Penetração"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Trena",
-    "clue": "Distância"
+    "clue": "Distância",
+    "hints": {
+      "easy": [
+        "Fita métrica",
+        "Comprimento"
+      ],
+      "medium": [
+        "Distância",
+        "Medida"
+      ],
+      "hard": [
+        "Retração",
+        "Escala"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Nível de bolha",
-    "clue": "Equilíbrio"
+    "clue": "Equilíbrio",
+    "hints": {
+      "easy": [
+        "Alinhamento horizontal",
+        "Bolha de ar"
+      ],
+      "medium": [
+        "Equilíbrio",
+        "Prumo"
+      ],
+      "hard": [
+        "Referência",
+        "Gravidade"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
     "word": "Escada",
-    "clue": "Alcance"
+    "clue": "Alcance",
+    "hints": {
+      "easy": [
+        "Degraus",
+        "Subir"
+      ],
+      "medium": [
+        "Alcance",
+        "Altura"
+      ],
+      "hard": [
+        "Inclinação",
+        "Apoio"
+      ]
+    }
   },
   {
     "category": "Ferramentas e construção",
@@ -2302,42 +4878,154 @@
   {
     "category": "Comércio e dinheiro",
     "word": "Cartão de crédito",
-    "clue": "Limite"
+    "clue": "Limite",
+    "hints": {
+      "easy": [
+        "Fatura",
+        "Compras a prazo"
+      ],
+      "medium": [
+        "Limite",
+        "Plástico"
+      ],
+      "hard": [
+        "Confiança",
+        "Compromisso"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Caixa eletrônico",
-    "clue": "Retirada"
+    "clue": "Retirada",
+    "hints": {
+      "easy": [
+        "Saque",
+        "Senha bancária"
+      ],
+      "medium": [
+        "Retirada",
+        "Terminal"
+      ],
+      "hard": [
+        "Disponibilidade",
+        "Liquidez"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Cupom fiscal",
-    "clue": "Comprovante"
+    "clue": "Comprovante",
+    "hints": {
+      "easy": [
+        "Compra",
+        "Nota da loja"
+      ],
+      "medium": [
+        "Comprovante",
+        "Impressão"
+      ],
+      "hard": [
+        "Rastreabilidade",
+        "Registro"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Desconto",
-    "clue": "Economia"
+    "clue": "Economia",
+    "hints": {
+      "easy": [
+        "Preço menor",
+        "Promoção"
+      ],
+      "medium": [
+        "Economia",
+        "Porcentagem"
+      ],
+      "hard": [
+        "Incentivo",
+        "Margem"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Leilão",
-    "clue": "Disputa"
+    "clue": "Disputa",
+    "hints": {
+      "easy": [
+        "Lance",
+        "Maior oferta"
+      ],
+      "medium": [
+        "Disputa",
+        "Arremate"
+      ],
+      "hard": [
+        "Escassez",
+        "Competição"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Cofre",
-    "clue": "Segurança"
+    "clue": "Segurança",
+    "hints": {
+      "easy": [
+        "Senha",
+        "Guardar valores"
+      ],
+      "medium": [
+        "Segurança",
+        "Fechadura"
+      ],
+      "hard": [
+        "Resistência",
+        "Confidencialidade"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Moeda",
-    "clue": "Troca"
+    "clue": "Troca",
+    "hints": {
+      "easy": [
+        "Dinheiro metálico",
+        "Troco"
+      ],
+      "medium": [
+        "Troca",
+        "Valor"
+      ],
+      "hard": [
+        "Conversão",
+        "Circulação"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
     "word": "Cheque",
-    "clue": "Assinatura"
+    "clue": "Assinatura",
+    "hints": {
+      "easy": [
+        "Talão",
+        "Ordem de pagamento"
+      ],
+      "medium": [
+        "Assinatura",
+        "Banco"
+      ],
+      "hard": [
+        "Confiança",
+        "Compensação"
+      ]
+    }
   },
   {
     "category": "Comércio e dinheiro",
@@ -2402,42 +5090,154 @@
   {
     "category": "Escola e escritório",
     "word": "Quadro branco",
-    "clue": "Explicação"
+    "clue": "Explicação",
+    "hints": {
+      "easy": [
+        "Marcador",
+        "Sala de aula"
+      ],
+      "medium": [
+        "Explicação",
+        "Apagar"
+      ],
+      "hard": [
+        "Superfície",
+        "Visualização"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Giz",
-    "clue": "Poeira"
+    "clue": "Poeira",
+    "hints": {
+      "easy": [
+        "Lousa",
+        "Escrever"
+      ],
+      "medium": [
+        "Poeira",
+        "Branco"
+      ],
+      "hard": [
+        "Resíduo",
+        "Fricção"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Grampeador",
-    "clue": "União"
+    "clue": "União",
+    "hints": {
+      "easy": [
+        "Grampos",
+        "Juntar papéis"
+      ],
+      "medium": [
+        "União",
+        "Metal"
+      ],
+      "hard": [
+        "Pressão",
+        "Fixação"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Clipes",
-    "clue": "Agrupamento"
+    "clue": "Agrupamento",
+    "hints": {
+      "easy": [
+        "Prender folhas",
+        "Arame"
+      ],
+      "medium": [
+        "Agrupamento",
+        "Papelaria"
+      ],
+      "hard": [
+        "Flexibilidade",
+        "Reversibilidade"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Marca-texto",
-    "clue": "Destaque"
+    "clue": "Destaque",
+    "hints": {
+      "easy": [
+        "Cor fluorescente",
+        "Sublinhar"
+      ],
+      "medium": [
+        "Destaque",
+        "Estudo"
+      ],
+      "hard": [
+        "Seleção",
+        "Contraste"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Régua",
-    "clue": "Precisão"
+    "clue": "Precisão",
+    "hints": {
+      "easy": [
+        "Centímetros",
+        "Linha reta"
+      ],
+      "medium": [
+        "Precisão",
+        "Medida"
+      ],
+      "hard": [
+        "Referência",
+        "Escala"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Compasso",
-    "clue": "Geometria"
+    "clue": "Geometria",
+    "hints": {
+      "easy": [
+        "Traçar círculos",
+        "Duas pontas"
+      ],
+      "medium": [
+        "Geometria",
+        "Raio"
+      ],
+      "hard": [
+        "Centro",
+        "Abertura"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
     "word": "Transferidor",
-    "clue": "Ângulo"
+    "clue": "Ângulo",
+    "hints": {
+      "easy": [
+        "Graus",
+        "Semicírculo"
+      ],
+      "medium": [
+        "Ângulo",
+        "Medir ângulos"
+      ],
+      "hard": [
+        "Rotação",
+        "Referência"
+      ]
+    }
   },
   {
     "category": "Escola e escritório",
@@ -2502,42 +5302,154 @@
   {
     "category": "Saúde e bem-estar",
     "word": "Termômetro",
-    "clue": "Medição"
+    "clue": "Medição",
+    "hints": {
+      "easy": [
+        "Temperatura",
+        "Febre"
+      ],
+      "medium": [
+        "Medição",
+        "Graus"
+      ],
+      "hard": [
+        "Sensor",
+        "Variação"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Estetoscópio",
-    "clue": "Escuta"
+    "clue": "Escuta",
+    "hints": {
+      "easy": [
+        "Batimentos",
+        "Consulta"
+      ],
+      "medium": [
+        "Escuta",
+        "Som do peito"
+      ],
+      "hard": [
+        "Frequência",
+        "Amplificação"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Curativo",
-    "clue": "Proteção"
+    "clue": "Proteção",
+    "hints": {
+      "easy": [
+        "Ferida",
+        "Bandagem"
+      ],
+      "medium": [
+        "Proteção",
+        "Cicatrização"
+      ],
+      "hard": [
+        "Barreira",
+        "Cobertura"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Seringa",
-    "clue": "Aplicação"
+    "clue": "Aplicação",
+    "hints": {
+      "easy": [
+        "Agulha",
+        "Injeção"
+      ],
+      "medium": [
+        "Aplicação",
+        "Êmbolo"
+      ],
+      "hard": [
+        "Dosagem",
+        "Pressão"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Muleta",
-    "clue": "Apoio"
+    "clue": "Apoio",
+    "hints": {
+      "easy": [
+        "Apoio para andar",
+        "Perna machucada"
+      ],
+      "medium": [
+        "Apoio",
+        "Reabilitação"
+      ],
+      "hard": [
+        "Transferência de peso",
+        "Equilíbrio"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Cadeira de rodas",
-    "clue": "Mobilidade"
+    "clue": "Mobilidade",
+    "hints": {
+      "easy": [
+        "Rodas",
+        "Acessibilidade"
+      ],
+      "medium": [
+        "Mobilidade",
+        "Deslocamento"
+      ],
+      "hard": [
+        "Autonomia",
+        "Manobra"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Raio X",
-    "clue": "Interior"
+    "clue": "Interior",
+    "hints": {
+      "easy": [
+        "Radiografia",
+        "Ossos"
+      ],
+      "medium": [
+        "Interior",
+        "Imagem médica"
+      ],
+      "hard": [
+        "Penetração",
+        "Contraste"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
     "word": "Gesso ortopédico",
-    "clue": "Imobilidade"
+    "clue": "Imobilidade",
+    "hints": {
+      "easy": [
+        "Fratura",
+        "Braço imobilizado"
+      ],
+      "medium": [
+        "Imobilidade",
+        "Molde"
+      ],
+      "hard": [
+        "Rigidez",
+        "Recuperação"
+      ]
+    }
   },
   {
     "category": "Saúde e bem-estar",
@@ -2602,42 +5514,154 @@
   {
     "category": "Brasil e cultura",
     "word": "Bumba meu boi",
-    "clue": "Espetáculo"
+    "clue": "Espetáculo",
+    "hints": {
+      "easy": [
+        "Festa do boi",
+        "Maranhão"
+      ],
+      "medium": [
+        "Espetáculo",
+        "Folclore"
+      ],
+      "hard": [
+        "Ressurreição",
+        "Narrativa"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Frevo",
-    "clue": "Energia"
+    "clue": "Energia",
+    "hints": {
+      "easy": [
+        "Sombrinha",
+        "Pernambuco"
+      ],
+      "medium": [
+        "Energia",
+        "Carnaval"
+      ],
+      "hard": [
+        "Agilidade",
+        "Metais"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Capoeira",
-    "clue": "Ginga"
+    "clue": "Ginga",
+    "hints": {
+      "easy": [
+        "Roda",
+        "Berimbau"
+      ],
+      "medium": [
+        "Ginga",
+        "Luta e dança"
+      ],
+      "hard": [
+        "Esquiva",
+        "Diálogo"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Forró",
-    "clue": "Parceria"
+    "clue": "Parceria",
+    "hints": {
+      "easy": [
+        "Sanfona",
+        "Dança de casal"
+      ],
+      "medium": [
+        "Parceria",
+        "Nordeste"
+      ],
+      "hard": [
+        "Proximidade",
+        "Cadência"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Maracatu",
-    "clue": "Cortejo"
+    "clue": "Cortejo",
+    "hints": {
+      "easy": [
+        "Tambores",
+        "Pernambuco"
+      ],
+      "medium": [
+        "Cortejo",
+        "Cortejo real"
+      ],
+      "hard": [
+        "Hierarquia",
+        "Percussão"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Cordel",
-    "clue": "Versos"
+    "clue": "Versos",
+    "hints": {
+      "easy": [
+        "Livretos",
+        "Rimas"
+      ],
+      "medium": [
+        "Versos",
+        "Xilogravura"
+      ],
+      "hard": [
+        "Oralidade",
+        "Circulação"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Folia de Reis",
-    "clue": "Visita"
+    "clue": "Visita",
+    "hints": {
+      "easy": [
+        "Três Reis Magos",
+        "Janeiro"
+      ],
+      "medium": [
+        "Visita",
+        "Bandeira"
+      ],
+      "hard": [
+        "Peregrinação",
+        "Devoção"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
     "word": "Trio elétrico",
-    "clue": "Multidão"
+    "clue": "Multidão",
+    "hints": {
+      "easy": [
+        "Caminhão de som",
+        "Carnaval de rua"
+      ],
+      "medium": [
+        "Multidão",
+        "Amplificação"
+      ],
+      "hard": [
+        "Mobilidade",
+        "Coletividade"
+      ]
+    }
   },
   {
     "category": "Brasil e cultura",
@@ -2702,42 +5726,154 @@
   {
     "category": "História e patrimônio",
     "word": "Pirâmide",
-    "clue": "Eternidade"
+    "clue": "Eternidade",
+    "hints": {
+      "easy": [
+        "Egito",
+        "Base quadrada"
+      ],
+      "medium": [
+        "Eternidade",
+        "Monumento"
+      ],
+      "hard": [
+        "Convergência",
+        "Massa"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Castelo",
-    "clue": "Defesa"
+    "clue": "Defesa",
+    "hints": {
+      "easy": [
+        "Torres",
+        "Muralhas"
+      ],
+      "medium": [
+        "Defesa",
+        "Fortaleza"
+      ],
+      "hard": [
+        "Hierarquia",
+        "Residência"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Muralha",
-    "clue": "Limite"
+    "clue": "Limite",
+    "hints": {
+      "easy": [
+        "Muro defensivo",
+        "Fortificação"
+      ],
+      "medium": [
+        "Limite",
+        "Barreira"
+      ],
+      "hard": [
+        "Contenção",
+        "Perímetro"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Coliseu",
-    "clue": "Espetáculo"
+    "clue": "Espetáculo",
+    "hints": {
+      "easy": [
+        "Roma antiga",
+        "Gladiadores"
+      ],
+      "medium": [
+        "Espetáculo",
+        "Anfiteatro"
+      ],
+      "hard": [
+        "Arquibancada",
+        "Poder"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Fóssil",
-    "clue": "Vestígio"
+    "clue": "Vestígio",
+    "hints": {
+      "easy": [
+        "Dinossauro",
+        "Vestígio antigo"
+      ],
+      "medium": [
+        "Vestígio",
+        "Rocha"
+      ],
+      "hard": [
+        "Sedimento",
+        "Tempo profundo"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Pergaminho",
-    "clue": "Registro"
+    "clue": "Registro",
+    "hints": {
+      "easy": [
+        "Pele preparada",
+        "Manuscrito"
+      ],
+      "medium": [
+        "Registro",
+        "Documento antigo"
+      ],
+      "hard": [
+        "Durabilidade",
+        "Transmissão"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Ampulheta",
-    "clue": "Passagem"
+    "clue": "Passagem",
+    "hints": {
+      "easy": [
+        "Areia",
+        "Medir tempo"
+      ],
+      "medium": [
+        "Passagem",
+        "Vidro"
+      ],
+      "hard": [
+        "Fluxo",
+        "Reversão"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
     "word": "Bússola",
-    "clue": "Orientação"
+    "clue": "Orientação",
+    "hints": {
+      "easy": [
+        "Norte",
+        "Agulha magnética"
+      ],
+      "medium": [
+        "Orientação",
+        "Direção"
+      ],
+      "hard": [
+        "Campo",
+        "Referência"
+      ]
+    }
   },
   {
     "category": "História e patrimônio",
@@ -2802,42 +5938,154 @@
   {
     "category": "Artes e criatividade",
     "word": "Aquarela",
-    "clue": "Transparência"
+    "clue": "Transparência",
+    "hints": {
+      "easy": [
+        "Tinta com água",
+        "Papel"
+      ],
+      "medium": [
+        "Transparência",
+        "Lavagem"
+      ],
+      "hard": [
+        "Diluição",
+        "Luminosidade"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Escultura",
-    "clue": "Volume"
+    "clue": "Volume",
+    "hints": {
+      "easy": [
+        "Estátua",
+        "Material modelado"
+      ],
+      "medium": [
+        "Volume",
+        "Tridimensional"
+      ],
+      "hard": [
+        "Espaço",
+        "Subtração"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Grafite",
-    "clue": "Expressão"
+    "clue": "Expressão",
+    "hints": {
+      "easy": [
+        "Arte urbana",
+        "Spray"
+      ],
+      "medium": [
+        "Expressão",
+        "Muro"
+      ],
+      "hard": [
+        "Visibilidade",
+        "Intervenção"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Mosaico",
-    "clue": "Fragmentos"
+    "clue": "Fragmentos",
+    "hints": {
+      "easy": [
+        "Pequenas peças",
+        "Imagem montada"
+      ],
+      "medium": [
+        "Fragmentos",
+        "Azulejos"
+      ],
+      "hard": [
+        "Padrão",
+        "Composição"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Origami",
-    "clue": "Dobras"
+    "clue": "Dobras",
+    "hints": {
+      "easy": [
+        "Papel dobrado",
+        "Tsuru"
+      ],
+      "medium": [
+        "Dobras",
+        "Geometria"
+      ],
+      "hard": [
+        "Transformação",
+        "Sequência"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Colagem",
-    "clue": "Composição"
+    "clue": "Composição",
+    "hints": {
+      "easy": [
+        "Recortes",
+        "Cola"
+      ],
+      "medium": [
+        "Composição",
+        "Composição visual"
+      ],
+      "hard": [
+        "Justaposição",
+        "Recontextualização"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Cerâmica",
-    "clue": "Modelagem"
+    "clue": "Modelagem",
+    "hints": {
+      "easy": [
+        "Argila",
+        "Forno"
+      ],
+      "medium": [
+        "Modelagem",
+        "Vaso"
+      ],
+      "hard": [
+        "Queima",
+        "Plasticidade"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
     "word": "Bordado",
-    "clue": "Paciência"
+    "clue": "Paciência",
+    "hints": {
+      "easy": [
+        "Agulha",
+        "Linha"
+      ],
+      "medium": [
+        "Paciência",
+        "Tecido"
+      ],
+      "hard": [
+        "Repetição",
+        "Detalhe"
+      ]
+    }
   },
   {
     "category": "Artes e criatividade",
@@ -2902,42 +6150,154 @@
   {
     "category": "Viagens e lazer",
     "word": "Passaporte",
-    "clue": "Fronteira"
+    "clue": "Fronteira",
+    "hints": {
+      "easy": [
+        "Documento internacional",
+        "Imigração"
+      ],
+      "medium": [
+        "Fronteira",
+        "Carimbo"
+      ],
+      "hard": [
+        "Identidade",
+        "Validade"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Mala de viagem",
-    "clue": "Bagagem"
+    "clue": "Bagagem",
+    "hints": {
+      "easy": [
+        "Alça retrátil",
+        "Rodinhas"
+      ],
+      "medium": [
+        "Bagagem",
+        "Roupas"
+      ],
+      "hard": [
+        "Capacidade",
+        "Seleção"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Cartão de embarque",
-    "clue": "Acesso"
+    "clue": "Acesso",
+    "hints": {
+      "easy": [
+        "Portão",
+        "Assento"
+      ],
+      "medium": [
+        "Acesso",
+        "Check-in"
+      ],
+      "hard": [
+        "Autorização",
+        "Sequência"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Albergue",
-    "clue": "Compartilhamento"
+    "clue": "Compartilhamento",
+    "hints": {
+      "easy": [
+        "Quarto compartilhado",
+        "Beliche"
+      ],
+      "medium": [
+        "Compartilhamento",
+        "Mochileiros"
+      ],
+      "hard": [
+        "Economia",
+        "Convivência"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Barraca",
-    "clue": "Abrigo"
+    "clue": "Abrigo",
+    "hints": {
+      "easy": [
+        "Camping",
+        "Lona"
+      ],
+      "medium": [
+        "Abrigo",
+        "Estacas"
+      ],
+      "hard": [
+        "Montagem",
+        "Proteção"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Saco de dormir",
-    "clue": "Isolamento"
+    "clue": "Isolamento",
+    "hints": {
+      "easy": [
+        "Camping",
+        "Dormir aquecido"
+      ],
+      "medium": [
+        "Isolamento",
+        "Zíper"
+      ],
+      "hard": [
+        "Compactação",
+        "Conservação térmica"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Prancha de bodyboard",
-    "clue": "Onda"
+    "clue": "Onda",
+    "hints": {
+      "easy": [
+        "Ondas",
+        "Prancha curta"
+      ],
+      "medium": [
+        "Onda",
+        "Praia"
+      ],
+      "hard": [
+        "Flutuação",
+        "Impulso"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",
     "word": "Boia",
-    "clue": "Flutuação"
+    "clue": "Flutuação",
+    "hints": {
+      "easy": [
+        "Flutuar",
+        "Piscina"
+      ],
+      "medium": [
+        "Flutuação",
+        "Inflável"
+      ],
+      "hard": [
+        "Empuxo",
+        "Segurança"
+      ]
+    }
   },
   {
     "category": "Viagens e lazer",

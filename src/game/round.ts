@@ -1,6 +1,9 @@
 import catalog from '../data/words.json'
 
+export type Difficulty = 'easy' | 'medium' | 'hard'
+
 export interface WordEntry {
+  readonly hints?: Readonly<Record<Difficulty, readonly string[]>>
   readonly category: string
   readonly word: string
   readonly clue: string
@@ -26,6 +29,12 @@ export const CUSTOM_CATEGORY = 'Personalizadas'
 export interface RoundOptions {
   readonly pool: readonly WordEntry[]
   readonly clueEnabled: boolean
+  readonly difficulty?: Difficulty
+  readonly previousImpostor?: string | null
+}
+
+export function getHints(entry: WordEntry, difficulty: Difficulty): readonly string[] {
+  return entry.hints?.[difficulty] ?? (difficulty === 'medium' ? [entry.clue] : [])
 }
 
 export function wordKey(word: string): string {
@@ -51,7 +60,8 @@ export function createRound(
     throw new Error('At least three players are required.')
   }
 
-  const { pool, clueEnabled } = options
+  const { clueEnabled, difficulty = 'medium', previousImpostor } = options
+  const pool = options.pool.filter((entry) => !clueEnabled || getHints(entry, difficulty).length > 0)
   if (pool.length === 0) {
     throw new Error('No words available.')
   }
@@ -64,7 +74,13 @@ export function createRound(
   const lastWord = usedWords[usedWords.length - 1]
   const newCycle = pool.filter((entry) => wordKey(entry.word) !== lastWord)
   const candidates = unused.length > 0 ? unused : newCycle.length > 0 ? newCycle : pool
-  const entry = candidates[randomIndex(candidates.length, random)]
+  const selected = candidates[randomIndex(candidates.length, random)]
+  const hints = clueEnabled ? getHints(selected, difficulty) : []
+  const entry = { ...selected, clue: hints.length ? hints[randomIndex(hints.length, random)] : selected.clue }
+  const eligibleImpostors = players.map((_, index) => index).filter((index) =>
+    wordKey(players[index]) !== wordKey(previousImpostor ?? ''),
+  )
+  const impostors = eligibleImpostors.length ? eligibleImpostors : players.map((_, index) => index)
   const history = unused.length > 0 ? usedWords : usedWords.filter((key) => !poolKeys.has(key))
 
   return {
@@ -72,7 +88,7 @@ export function createRound(
     entry,
     clueEnabled,
     usedWords: [...history, wordKey(entry.word)],
-    impostorIndex: randomIndex(players.length, random),
+    impostorIndex: impostors[randomIndex(impostors.length, random)],
     startingPlayerIndex: randomIndex(players.length, random),
   }
 }

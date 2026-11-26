@@ -1,20 +1,23 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { CUSTOM_CATEGORY, wordKey, words } from './game/round'
-import type { WordEntry } from './game/round'
+import { CUSTOM_CATEGORY, wordKey, words, getHints } from './game/round'
+import type { WordEntry, Difficulty } from './game/round'
 
 export interface GameSettings {
-  readonly category: string
+  readonly categories: readonly string[]
+  readonly difficulty: Difficulty
+  readonly timerSeconds: number
+  readonly holdToReveal: boolean
   readonly clueEnabled: boolean
   readonly customWords: readonly WordEntry[]
 }
 
 const STORAGE_KEY = 'impostor-game:settings'
-export const ALL_CATEGORIES = 'Todas'
+const TIMER_OPTIONS = [0, 60, 120, 180, 300] as const
 const categories = [...new Set(words.map((entry) => entry.category))].sort((a, b) => a.localeCompare(b, 'pt-BR'))
 
 export function loadSettings(): GameSettings {
-  const defaults = { category: ALL_CATEGORIES, clueEnabled: true, customWords: [] }
+  const defaults: GameSettings = { categories: [], difficulty: 'medium', timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [] }
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null')
     if (!stored || typeof stored !== 'object') return defaults
@@ -31,9 +34,14 @@ export function loadSettings(): GameSettings {
         customWords.push({ category: CUSTOM_CATEGORY, word, clue })
       }
     }
-    const validCategories = [ALL_CATEGORIES, ...categories, ...(customWords.length ? [CUSTOM_CATEGORY] : [])]
+    const validCategories = [...categories, ...(customWords.length ? [CUSTOM_CATEGORY] : [])]
+    const savedCategories: unknown[] = Array.isArray(stored.categories) ? stored.categories : [stored.category]
+    const selectedCategories = [...new Set(savedCategories.filter((value): value is string => typeof value === 'string' && validCategories.includes(value)))]
     return {
-      category: validCategories.includes(stored.category) ? stored.category : ALL_CATEGORIES,
+      categories: selectedCategories,
+      difficulty: stored.difficulty === 'easy' || stored.difficulty === 'hard' ? stored.difficulty : 'medium',
+      timerSeconds: TIMER_OPTIONS.some((seconds) => seconds === stored.timerSeconds) ? stored.timerSeconds : 0,
+      holdToReveal: typeof stored.holdToReveal === 'boolean' ? stored.holdToReveal : true,
       clueEnabled: typeof stored.clueEnabled === 'boolean' ? stored.clueEnabled : true,
       customWords,
     }
@@ -52,7 +60,10 @@ export function saveSettings(settings: GameSettings): void {
 
 export function getWordPool(settings: GameSettings): readonly WordEntry[] {
   const entries = [...words, ...settings.customWords]
-  return settings.category === ALL_CATEGORIES ? entries : entries.filter((entry) => entry.category === settings.category)
+  return entries.filter((entry) =>
+    (settings.categories.length === 0 || settings.categories.includes(entry.category)) &&
+    (!settings.clueEnabled || getHints(entry, settings.difficulty).length > 0),
+  )
 }
 
 interface Props {
@@ -92,7 +103,7 @@ export default function SettingsPanel({ settings, onChange }: Props) {
     onChange({
       ...settings,
       customWords,
-      category: settings.category === CUSTOM_CATEGORY && !customWords.length ? ALL_CATEGORIES : settings.category,
+      categories: customWords.length ? settings.categories : settings.categories.filter((category) => category !== CUSTOM_CATEGORY),
     })
   }
 
@@ -100,16 +111,42 @@ export default function SettingsPanel({ settings, onChange }: Props) {
     <details className="panel settings-panel">
       <summary>Opções da rodada <span className="muted">· {getWordPool(settings).length} palavras</span></summary>
       <div className="settings-content">
-        <label htmlFor="category">Categoria</label>
-        <select id="category" value={settings.category} onChange={(event) => onChange({ ...settings, category: event.target.value })}>
-          <option value={ALL_CATEGORIES}>Todas as categorias</option>
-          {categories.map((category) => <option key={category}>{category}</option>)}
-          {settings.customWords.length > 0 && <option>{CUSTOM_CATEGORY}</option>}
-        </select>
+        <details className="category-panel">
+          <summary>Categorias · {settings.categories.length === 0 ? 'Todas' : settings.categories.length + ' selecionadas'}</summary>
+          <button type="button" className="secondary full-width" onClick={() => onChange({ ...settings, categories: [] })}>Usar todas</button>
+          <p className="muted category-help">Sem seleção específica, todas entram no sorteio.</p>
+          <div className="category-options">
+            {[...categories, ...(settings.customWords.length ? [CUSTOM_CATEGORY] : [])].map((category) => (
+              <label className="check-option" key={category}>
+                <input type="checkbox" checked={settings.categories.includes(category)} onChange={(event) => onChange({
+                  ...settings,
+                  categories: event.target.checked ? [...settings.categories, category] : settings.categories.filter((item) => item !== category),
+                })} />
+                {category}
+              </label>
+            ))}
+          </div>
+        </details>
         <label className="check-option">
           <input type="checkbox" checked={settings.clueEnabled} onChange={(event) => onChange({ ...settings, clueEnabled: event.target.checked })} />
           Impostor recebe dica
         </label>
+        <label htmlFor="difficulty">Dificuldade da dica</label>
+        <select id="difficulty" disabled={!settings.clueEnabled} value={settings.difficulty} onChange={(event) => onChange({ ...settings, difficulty: event.target.value as Difficulty })}>
+          <option value="easy">Fácil — dicas mais diretas</option>
+          <option value="medium">Normal — catálogo completo</option>
+          <option value="hard">Difícil — dicas indiretas</option>
+        </select>
+        <p className="muted category-help">Fácil e difícil usam palavras com dicas revisadas; palavras personalizadas entram no modo normal ou sem dica.</p>
+        <label htmlFor="timer">Tempo de discussão</label>
+        <select id="timer" value={settings.timerSeconds} onChange={(event) => onChange({ ...settings, timerSeconds: Number(event.target.value) })}>
+          {TIMER_OPTIONS.map((seconds) => <option key={seconds} value={seconds}>{seconds ? seconds / 60 + ' min' : 'Sem cronômetro'}</option>)}
+        </select>
+        <label className="check-option">
+          <input type="checkbox" checked={settings.holdToReveal} onChange={(event) => onChange({ ...settings, holdToReveal: event.target.checked })} />
+          Segurar para revelar
+        </label>
+        {getWordPool(settings).length === 0 && <p className="error" role="alert">Nenhuma palavra disponível com estas opções.</p>}
         <details className="custom-panel">
           <summary>Palavras personalizadas ({settings.customWords.length})</summary>
           <p className="muted">Adicione referências do seu grupo antes da partida. Elas entram no sorteio de todas as categorias ou em Personalizadas.</p>
