@@ -115,7 +115,6 @@ export default function App() {
       clueEnabled: settings.clueEnabled,
       difficulty: settings.difficulty,
       previousImpostor: history.previousImpostor,
-      favoriteWords: collection.favorites,
     })
     setHistory({ usedWords: round.usedWords, previousImpostor: wordKey(round.players[round.impostorIndex]) })
     playSound(settings.sound, 'start')

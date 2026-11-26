@@ -2,13 +2,15 @@ import { wordKey } from './round'
 import type { Round, WordEntry } from './round'
 
 export type Rating = 'good' | 'bad'
+export type WordScore = 1 | 2 | 3 | 4 | 5
+export interface RatedWord { readonly word: string; readonly score: WordScore }
 export interface RatedClue {
   readonly word: string
   readonly clue: string
   readonly rating: Rating
 }
 export interface Collection {
-  readonly favorites: readonly string[]
+  readonly wordRatings: readonly RatedWord[]
   readonly blocked: readonly string[]
   readonly ratings: readonly RatedClue[]
   readonly completed: number
@@ -18,7 +20,7 @@ export interface Collection {
 
 const KEY = 'impostor-game:collection'
 export function emptyCollection(): Collection {
-  return { favorites: [], blocked: [], ratings: [], completed: 0, cancelled: 0, roles: [] }
+  return { wordRatings: [], blocked: [], ratings: [], completed: 0, cancelled: 0, roles: [] }
 }
 
 function validCount(value: unknown): value is number {
@@ -38,7 +40,18 @@ export function loadCollection(): Collection {
     const value = JSON.parse(localStorage.getItem(KEY) ?? 'null')
     if (!value || typeof value !== 'object') return emptyCollection()
     const blocked = keyList(value.blocked)
-    const favorites = keyList(value.favorites).filter(key => !blocked.includes(key))
+    const wordRatings: RatedWord[] = []
+    if (Array.isArray(value.wordRatings)) {
+      for (const item of value.wordRatings) {
+        if (!item || !validText(item.word) || !validScore(item.score)) continue
+        if (!wordRatings.some(r => wordKey(r.word) === wordKey(item.word))) {
+          wordRatings.push({ word: item.word, score: item.score })
+        }
+      }
+    } else {
+      // Preserve the old positive marker as a five-star rating.
+      for (const word of keyList(value.favorites)) wordRatings.push({ word, score: 5 })
+    }
     const ratings: RatedClue[] = []
     if (Array.isArray(value.ratings)) {
       for (const item of value.ratings) {
@@ -55,7 +68,7 @@ export function loadCollection(): Collection {
         if (!roles.some(r => r.name === item.name)) roles.push({ name: item.name, rounds: item.rounds, impostor: item.impostor })
       }
     }
-    return { favorites, blocked, ratings, roles, completed: validCount(value.completed) ? value.completed : 0, cancelled: validCount(value.cancelled) ? value.cancelled : 0 }
+    return { wordRatings, blocked, ratings, roles, completed: validCount(value.completed) ? value.completed : 0, cancelled: validCount(value.cancelled) ? value.cancelled : 0 }
   } catch { return emptyCollection() }
 }
 
@@ -63,19 +76,24 @@ export function saveCollection(collection: Collection): void {
   try { localStorage.setItem(KEY, JSON.stringify(collection)) } catch { /* memory fallback */ }
 }
 
-export function toggleFavorite(collection: Collection, word: string): Collection {
-  const key = wordKey(word)
-  return { ...collection,
-    favorites: collection.favorites.includes(key) ? collection.favorites.filter(item => item !== key) : [...collection.favorites, key],
-    blocked: collection.blocked.filter(item => item !== key),
-  }
+function validScore(value: unknown): value is WordScore {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 1 && value <= 5
+}
+
+export function getWordScore(collection: Collection, word: string): WordScore | null {
+  return collection.wordRatings.find(item => wordKey(item.word) === wordKey(word))?.score ?? null
+}
+
+export function rateWord(collection: Collection, word: string, score: WordScore | null): Collection {
+  if (score !== null && !validScore(score)) throw new RangeError('Invalid word rating.')
+  const wordRatings = collection.wordRatings.filter(item => wordKey(item.word) !== wordKey(word))
+  return { ...collection, wordRatings: score === null ? wordRatings : [...wordRatings, { word, score }] }
 }
 
 export function toggleBlocked(collection: Collection, word: string): Collection {
   const key = wordKey(word)
   return { ...collection,
     blocked: collection.blocked.includes(key) ? collection.blocked.filter(item => item !== key) : [...collection.blocked, key],
-    favorites: collection.favorites.filter(item => item !== key),
   }
 }
 

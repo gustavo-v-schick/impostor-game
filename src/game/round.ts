@@ -31,7 +31,6 @@ export interface RoundOptions {
   readonly clueEnabled: boolean
   readonly difficulty?: Difficulty
   readonly previousImpostor?: string | null
-  readonly favoriteWords?: readonly string[]
 }
 
 export function getHints(entry: WordEntry, difficulty: Difficulty): readonly string[] {
@@ -75,10 +74,8 @@ export function createRound(
   const lastWord = usedWords[usedWords.length - 1]
   const newCycle = pool.filter((entry) => wordKey(entry.word) !== lastWord)
   const candidates = unused.length > 0 ? unused : newCycle.length > 0 ? newCycle : pool
-  // Favorites have double weight, but never bypass the unused-word filter.
-  const favorites = new Set(options.favoriteWords ?? [])
-  const weighted = [...candidates, ...candidates.filter(entry => favorites.has(wordKey(entry.word)))]
-  const selected = weighted[randomIndex(weighted.length, random)]
+  // Ratings are descriptive only. All eligible unused words have equal weight.
+  const selected = candidates[randomIndex(candidates.length, random)]
   const hints = clueEnabled ? getHints(selected, difficulty) : []
   const entry = { ...selected, clue: hints.length ? hints[randomIndex(hints.length, random)] : selected.clue }
   const eligibleImpostors = players.map((_, index) => index).filter((index) =>

@@ -106,19 +106,27 @@ test('invalid players, empty pools, invalid indices and random values are reject
   assert.throws(() => getPlayerCard(round, 1.5), RangeError)
 })
 
-const { emptyCollection, toggleFavorite, toggleBlocked, rateClue, filterWords, recordCompleted } = require('../.test-build/game/collection.js')
+const { emptyCollection, getWordScore, rateWord, toggleBlocked, rateClue, filterWords, recordCompleted } = require('../.test-build/game/collection.js')
 
-test('favorites have double weight but cannot bypass no-repeat history', () => {
-  const round = createRound(players, [], { ...options, favoriteWords: ['pinguim'] }, () => 0.99)
-  assert.equal(round.entry.word, 'Pinguim')
-  const next = createRound(players, ['pinguim'], { ...options, favoriteWords: ['pinguim'] }, () => 0.99)
-  assert.notEqual(next.entry.word, 'Pinguim')
+test('ratings do not affect eligibility, draw probabilities or history', () => {
+  const rated = rateWord(rateWord(emptyCollection(), 'Pinguim', 5), 'Xadrez', 1)
+  const ratedPool = filterWords(pool, rated)
+  assert.deepEqual(ratedPool, pool)
+  for (const value of [0, 0.33, 0.5, 0.66, 0.99]) {
+    const random = () => value
+    for (const history of [[], ['pinguim']]) {
+      assert.deepEqual(createRound(players, history, { ...options, pool: ratedPool }, random), createRound(players, history, options, random))
+    }
+  }
+  assert.equal(createRound(players, [], { ...options, pool: ratedPool }, () => 0.99).entry.word, 'Espelho')
+  assert.equal(getWordScore(rated, 'PINGUIM'), 5)
+  assert.equal(getWordScore(rateWord(rated, 'Pinguim', null), 'Pinguim'), null)
 })
 
-test('blocking excludes words and removes favorite status; unblocking restores availability', () => {
-  let collection = toggleFavorite(emptyCollection(), 'Pinguim')
+test('blocking excludes words without changing their rating; unblocking restores availability', () => {
+  let collection = rateWord(emptyCollection(), 'Pinguim', 5)
   collection = toggleBlocked(collection, 'PINGUIM')
-  assert.deepEqual(collection.favorites, [])
+  assert.equal(getWordScore(collection, 'Pinguim'), 5)
   assert.equal(filterWords(pool, collection).length, 2)
   collection = toggleBlocked(collection, 'pinguim')
   assert.equal(filterWords(pool, collection).length, 3)
