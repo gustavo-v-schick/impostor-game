@@ -6,7 +6,7 @@ import { version } from '../package.json'
 import { watchForUpdate, applyUpdate } from './pwa'
 import SettingsPanel, { loadSettings, saveSettings, getWordPool } from './SettingsPanel'
 import { loadHistory, saveHistory } from './game/history'
-import { RevealButton, DiscussionTimer } from './RoundControls'
+import { RevealButton, DiscussionTimer, FinalReveal, GameMark } from './RoundControls'
 import { loadCollection, saveCollection, recordCompleted } from './game/collection'
 import { CollectionPanel, RoundFeedback, StatsPanel } from './CollectionPanel'
 import { playSound } from './sound'
@@ -52,7 +52,27 @@ export default function App() {
   const [collection, setCollection] = useState(loadCollection)
   useEffect(() => saveCollection(collection), [collection])
   const [settings, setSettings] = useState(loadSettings)
-  useEffect(() => { document.documentElement.dataset.theme = settings.theme }, [settings.theme])
+  useEffect(() => {
+    const root = document.documentElement
+    root.dataset.theme = settings.theme
+    root.dataset.motion = settings.reduceMotion ? 'reduced' : 'auto'
+    root.dataset.text = settings.largeText ? 'large' : 'normal'
+    root.dataset.contrast = settings.highContrast ? 'high' : 'normal'
+    const colors = { violet: '#11131e', ocean: '#101d2a', forest: '#111e19', amber: '#211a15' }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', settings.highContrast ? '#090a10' : colors[settings.theme])
+  }, [settings.theme, settings.reduceMotion, settings.largeText, settings.highContrast])
+  const screenRef = useRef<HTMLElement>(null)
+  const screenIdentity = game.phase === 'handoff' || game.phase === 'card' ? game.phase + ':' + game.playerIndex : game.phase
+  useEffect(() => {
+    screenRef.current?.focus({ preventScroll: true })
+    window.scrollTo(0, 0)
+  }, [screenIdentity])
+
+  function vibrate(): void {
+    if (settings.haptics && typeof navigator.vibrate === 'function') {
+      try { navigator.vibrate(20) } catch { /* Optional on supported devices. */ }
+    }
+  }
   useEffect(() => saveSettings(settings), [settings])
   const [updateWorker, setUpdateWorker] = useState<ServiceWorker | null>(null)
 
@@ -121,6 +141,7 @@ export default function App() {
     })
     setHistory({ usedWords: round.usedWords, previousWord: wordKey(round.entry.word), previousImpostor: wordKey(round.players[round.impostorIndex]) })
     playSound(settings.sound, 'start')
+    vibrate()
     setGame({ phase: 'handoff', round, playerIndex: 0 })
   }
 
@@ -132,6 +153,7 @@ export default function App() {
   }
 
   function revealCard(): void {
+    vibrate()
     setGame((current) =>
       current.phase === 'handoff' ? { ...current, phase: 'card' } : current,
     )
@@ -139,6 +161,7 @@ export default function App() {
 
   function hideCard(): void {
     playSound(settings.sound, 'next')
+    vibrate()
     setGame((current) => {
       if (current.phase !== 'card') return current
 
@@ -154,22 +177,24 @@ export default function App() {
     const player = round.players[playerIndex]
 
     return (
-      <main className="setup round-screen">
+      <main ref={screenRef} tabIndex={-1} className="setup round-screen">
         <header className="distribution-header">
-          <p className="eyebrow">DISTRIBUIÇÃO</p>
-          <p className="muted">Jogador {playerIndex + 1} de {round.players.length}</p>
+          <div className="round-topline"><span className="eyebrow">01 / DISTRIBUIÇÃO</span><span className="step-count">{playerIndex + 1} / {round.players.length}</span></div>
           <progress className="progress" value={playerIndex + (game.phase === 'card' ? 1 : 0)} max={round.players.length} aria-label="Progresso da distribuição" />
         </header>
 
         {game.phase === 'handoff' ? (
-          <section key="handoff" className="panel round-panel">
-            <p className="muted">Passe o celular para</p>
+          <section key="handoff" className="panel round-panel handoff-panel">
+            <GameMark kind="lock" />
+            <p className="eyebrow">PASSE O CELULAR PARA</p>
             <h1 className="player-name">{player}</h1>
             <p className="muted">Só este jogador deve olhar a tela.</p>
+            <div className="sealed-card" aria-hidden="true"><GameMark kind="eye" /><span>INFORMAÇÃO SECRETA</span></div>
             <RevealButton hold={settings.holdToReveal} onReveal={revealCard} />
           </section>
         ) : (
-          <section key="card" className="panel round-panel">
+          <section key="card" className="panel round-panel private-panel">
+            <p className="eyebrow">SUA IDENTIDADE</p>
             <h2 className="player-name">{player}</h2>
             <SecretCard round={round} playerIndex={playerIndex} />
             <button type="button" className="primary full-width" onClick={hideCard}>
@@ -186,10 +211,11 @@ export default function App() {
   if (game.phase === 'playing' || game.phase === 'result') {
     const { round } = game
     return (
-      <main className="setup round-screen">
-        <header><p className="eyebrow">IMPOSTOR</p></header>
+      <main ref={screenRef} tabIndex={-1} className="setup round-screen">
+        <header className="round-topline"><span className="eyebrow">{game.phase === 'playing' ? '02 / DISCUSSÃO' : '03 / REVELAÇÃO'}</span><span className="wordmark">IMPOSTOR.</span></header>
         {game.phase === 'playing' ? (
-          <section key="playing" className="panel round-panel">
+          <section key="playing" className="panel round-panel playing-panel">
+            <GameMark kind="chat" />
             <h1>Hora de jogar!</h1>
             <p className="muted">Todos receberam suas informações.</p>
             <div className="secret">
@@ -198,29 +224,27 @@ export default function App() {
             </div>
             <p className="muted">Discutam as pistas e votem presencialmente.</p>
             {settings.timerSeconds > 0 && <DiscussionTimer seconds={settings.timerSeconds} />}
-            <button
-              type="button"
-              className="primary full-width"
-              onClick={() => {
-                setCollection(current => recordCompleted(current, round))
-                playSound(settings.sound, 'end')
-                setGame({ phase: 'result', round })
-              }}
-            >
-              Revelar impostor
-            </button>
+            <FinalReveal reduceMotion={settings.reduceMotion} onReveal={() => {
+              setCollection(current => recordCompleted(current, round))
+              playSound(settings.sound, 'end')
+              vibrate()
+              setGame({ phase: 'result', round })
+            }} />
             <button type="button" className="secondary full-width" onClick={cancelRound}>Cancelar rodada</button>
           </section>
         ) : (
-          <section key="result" className="panel round-panel">
-            <p className="role-label impostor-role">O impostor era</p>
-            <h1 className="player-name">{round.players[round.impostorIndex]}</h1>
+          <section key="result" className="panel round-panel result-panel">
+            <div className="result-hero">
+              <GameMark kind="eye" />
+              <p className="role-label impostor-role">O IMPOSTOR ERA</p>
+              <h1 className="player-name">{round.players[round.impostorIndex]}</h1>
+            </div>
             <div className="secret">
               <p className="muted">Palavra secreta</p>
               <p className="secret-value">{round.entry.word}</p>
               <p className="muted">{round.clueEnabled ? `Dica: ${round.entry.clue}` : 'Rodada sem dica'}</p>
             </div>
-            <RoundFeedback round={round} collection={collection} onChange={setCollection} />
+            <details className="feedback-drawer"><summary>Avaliar palavra e dica</summary><RoundFeedback round={round} collection={collection} onChange={setCollection} /></details>
             <button type="button" className="primary full-width" disabled={pool.length === 0} onClick={startRound}>
               Nova rodada
             </button>
@@ -236,16 +260,18 @@ export default function App() {
   }
 
   return (
-    <main className="setup">
-      <header>
+    <main ref={screenRef} tabIndex={-1} className="setup setup-home">
+      <header className="home-hero">
         <div className="brand">
-          <img src={`${import.meta.env.BASE_URL}icon-192.png`} alt="" width="60" height="60" />
+          <GameMark kind="eye" />
           <div>
-            <p className="eyebrow">JOGO DE DEDUÇÃO</p>
+            <p className="eyebrow">DEDUÇÃO SOCIAL</p>
             <h1>Impostor<span className="brand-dot">.</span></h1>
           </div>
         </div>
-        <p className="muted">Adicione os jogadores para começar.</p>
+        <p className="hero-tagline">Uma palavra. Um infiltrado.</p>
+        <p className="muted">Descubra quem está blefando.</p>
+        <div className="hero-meta"><span>3+ jogadores</span><span>Um celular</span><span>Offline após carregar</span></div>
       </header>
 
       {updateWorker && (
@@ -288,7 +314,8 @@ export default function App() {
           <ul className="players">
             {players.map((player, index) => (
               <li key={player}>
-                <span>{player}</span>
+                <span className="player-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span className="player-list-name">{player}</span>
                 <div className="player-actions">
                   <button type="button" className="secondary compact" disabled={index === 0} aria-label={'Mover ' + player + ' para cima'} onClick={() => movePlayer(index, -1)}>↑</button>
                   <button type="button" className="secondary compact" disabled={index === players.length - 1} aria-label={'Mover ' + player + ' para baixo'} onClick={() => movePlayer(index, 1)}>↓</button>
@@ -316,15 +343,13 @@ export default function App() {
       <SettingsPanel settings={settings} collection={collection} onChange={setSettings} />
       <CollectionPanel collection={collection} customWords={settings.customWords} onChange={setCollection} />
       <StatsPanel collection={collection} onChange={setCollection} />
-      <button
-        type="button"
-        className="primary full-width start-button"
-        disabled={missingPlayers > 0 || pool.length === 0}
-        onClick={startRound}
-      >
-        Iniciar rodada
-      </button>
-      <VersionFooter />
+      <div className="start-dock">
+        <div className="dock-meta"><span>{players.length} jogadores</span><span>{pool.length} palavras elegíveis</span></div>
+        <button type="button" className="primary full-width start-button" disabled={missingPlayers > 0 || pool.length === 0} onClick={startRound}>
+          Iniciar rodada <span aria-hidden="true">→</span>
+        </button>
+        <VersionFooter />
+      </div>
     </main>
   )
 }
@@ -335,6 +360,7 @@ function SecretCard({ round, playerIndex }: { round: Round; playerIndex: number 
 
   return (
     <div className={`secret role-card ${isImpostor ? 'role-impostor' : 'role-civil'}`}>
+      <GameMark kind={isImpostor ? 'eye' : 'shield'} />
       <p className={`role-label ${isImpostor ? 'impostor-role' : 'civil-role'}`}>
         {isImpostor ? 'Você é o impostor' : 'Você é um civil'}
       </p>

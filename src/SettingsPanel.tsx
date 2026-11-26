@@ -18,6 +18,10 @@ export interface GameSettings {
   readonly customWords: readonly WordEntry[]
   readonly theme: Theme
   readonly sound: boolean
+  readonly haptics: boolean
+  readonly reduceMotion: boolean
+  readonly largeText: boolean
+  readonly highContrast: boolean
 }
 
 const STORAGE_KEY = 'impostor-game:settings'
@@ -25,7 +29,7 @@ const TIMER_OPTIONS = [0, 60, 120, 180, 300] as const
 const categories = [...new Set(words.map((entry) => entry.category))].sort((a, b) => a.localeCompare(b, 'pt-BR'))
 
 export function loadSettings(): GameSettings {
-  const defaults: GameSettings = { categories: [], difficulty: 'medium', wordDifficulty: 'all', avoidSimilar: true, timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [], theme: 'violet', sound: false }
+  const defaults: GameSettings = { categories: [], difficulty: 'medium', wordDifficulty: 'all', avoidSimilar: true, timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [], theme: 'violet', sound: false, haptics: false, reduceMotion: false, largeText: false, highContrast: false }
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null')
     if (!stored || typeof stored !== 'object') return defaults
@@ -56,6 +60,10 @@ export function loadSettings(): GameSettings {
       customWords,
       theme: stored.theme === 'ocean' || stored.theme === 'forest' || stored.theme === 'amber' ? stored.theme : 'violet',
       sound: stored.sound === true,
+      haptics: stored.haptics === true,
+      reduceMotion: stored.reduceMotion === true,
+      largeText: stored.largeText === true,
+      highContrast: stored.highContrast === true,
     }
   } catch {
     return defaults
@@ -173,16 +181,26 @@ export default function SettingsPanel({ settings, collection, onChange }: Props)
           Segurar para revelar
         </label>
         {getWordPool(settings, collection).length === 0 && <p className="error" role="alert">Nenhuma palavra disponível com estas opções.</p>}
-        <label htmlFor="theme">Tema visual</label>
-        <select id="theme" value={settings.theme} onChange={event => onChange({ ...settings, theme: event.target.value as Theme })}>
-          <option value="violet">Violeta</option>
-          <option value="ocean">Oceano</option>
-          <option value="forest">Floresta</option>
-          <option value="amber">Âmbar</option>
-        </select>
+        <fieldset className="appearance">
+          <legend>Aparência e acessibilidade</legend>
+          <div className="theme-options" role="group" aria-label="Tema visual">
+            {([{ id: 'violet', name: 'Violeta' }, { id: 'ocean', name: 'Oceano' }, { id: 'forest', name: 'Floresta' }, { id: 'amber', name: 'Âmbar' }] as const).map(theme =>
+              <button type="button" className="theme-option" key={theme.id} data-swatch={theme.id} aria-pressed={settings.theme === theme.id} onClick={() => onChange({ ...settings, theme: theme.id })}>
+                <span className="theme-swatch" aria-hidden="true" />{theme.name}
+              </button>
+            )}
+          </div>
+          <label className="check-option"><input type="checkbox" checked={settings.largeText} onChange={event => onChange({ ...settings, largeText: event.target.checked })} />Texto ampliado</label>
+          <label className="check-option"><input type="checkbox" checked={settings.highContrast} onChange={event => onChange({ ...settings, highContrast: event.target.checked })} />Contraste reforçado</label>
+          <label className="check-option"><input type="checkbox" checked={settings.reduceMotion} onChange={event => onChange({ ...settings, reduceMotion: event.target.checked })} />Reduzir animações</label>
+        </fieldset>
         <label className="check-option">
           <input type="checkbox" checked={settings.sound} onChange={event => onChange({ ...settings, sound: event.target.checked })} />
           Efeitos sonoros
+        </label>
+        <label className="check-option">
+          <input type="checkbox" checked={settings.haptics} onChange={event => onChange({ ...settings, haptics: event.target.checked })} />
+          Vibração nas transições (se compatível)
         </label>
         <details className="custom-panel">
           <summary>Palavras personalizadas ({settings.customWords.length})</summary>
