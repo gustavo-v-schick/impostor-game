@@ -1,14 +1,23 @@
 import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
+import { createRound, getPlayerCard } from './game/round'
+import type { Round } from './game/round'
 
 const MIN_PLAYERS = 3
 const MAX_NAME_LENGTH = 40
+
+type GameState =
+  | { phase: 'setup' }
+  | { phase: 'handoff' | 'card'; round: Round; playerIndex: number }
+  | { phase: 'playing' | 'result'; round: Round }
 
 export default function App() {
   const [players, setPlayers] = useState<string[]>([])
   const [name, setName] = useState('')
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const [game, setGame] = useState<GameState>({ phase: 'setup' })
+  const [previousWord, setPreviousWord] = useState<string>()
 
   function addPlayer(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault()
@@ -38,6 +47,102 @@ export default function App() {
   }
 
   const missingPlayers = Math.max(0, MIN_PLAYERS - players.length)
+
+  function startRound(): void {
+    if (players.length < MIN_PLAYERS) return
+
+    const round = createRound(players, previousWord)
+    setPreviousWord(round.entry.word)
+    setGame({ phase: 'handoff', round, playerIndex: 0 })
+  }
+
+  function revealCard(): void {
+    setGame((current) =>
+      current.phase === 'handoff' ? { ...current, phase: 'card' } : current,
+    )
+  }
+
+  function hideCard(): void {
+    setGame((current) => {
+      if (current.phase !== 'card') return current
+
+      const nextIndex = current.playerIndex + 1
+      return nextIndex < current.round.players.length
+        ? { phase: 'handoff', round: current.round, playerIndex: nextIndex }
+        : { phase: 'playing', round: current.round }
+    })
+  }
+
+  if (game.phase === 'handoff' || game.phase === 'card') {
+    const { round, playerIndex } = game
+    const player = round.players[playerIndex]
+
+    return (
+      <main className="setup round-screen">
+        <header>
+          <p className="eyebrow">DISTRIBUIÇÃO</p>
+          <p className="muted">Jogador {playerIndex + 1} de {round.players.length}</p>
+        </header>
+
+        {game.phase === 'handoff' ? (
+          <section key="handoff" className="panel round-panel">
+            <p className="muted">Passe o celular para</p>
+            <h1 className="player-name">{player}</h1>
+            <p className="muted">Só este jogador deve olhar a tela.</p>
+            <button type="button" className="primary full-width" onClick={revealCard}>
+              Revelar minha informação
+            </button>
+          </section>
+        ) : (
+          <section key="card" className="panel round-panel">
+            <h2 className="player-name">{player}</h2>
+            <SecretCard round={round} playerIndex={playerIndex} />
+            <button type="button" className="primary full-width" onClick={hideCard}>
+              {playerIndex + 1 === round.players.length ? 'Ocultar e começar' : 'Ocultar e passar'}
+            </button>
+          </section>
+        )}
+      </main>
+    )
+  }
+
+  if (game.phase === 'playing' || game.phase === 'result') {
+    const { round } = game
+    return (
+      <main className="setup round-screen">
+        <header><p className="eyebrow">IMPOSTOR</p></header>
+        {game.phase === 'playing' ? (
+          <section key="playing" className="panel round-panel">
+            <h1>Hora de jogar!</h1>
+            <p className="muted">Todos receberam suas informações. Discutam as pistas e votem presencialmente.</p>
+            <button
+              type="button"
+              className="primary full-width"
+              onClick={() => setGame({ phase: 'result', round })}
+            >
+              Revelar impostor
+            </button>
+          </section>
+        ) : (
+          <section key="result" className="panel round-panel">
+            <p className="role-label impostor-role">O impostor era</p>
+            <h1 className="player-name">{round.players[round.impostorIndex]}</h1>
+            <div className="secret">
+              <p className="muted">Palavra secreta</p>
+              <p className="secret-value">{round.entry.word}</p>
+              <p className="muted">Dica: {round.entry.clue}</p>
+            </div>
+            <button type="button" className="primary full-width" onClick={startRound}>
+              Nova rodada
+            </button>
+            <button type="button" className="secondary full-width" onClick={() => setGame({ phase: 'setup' })}>
+              Alterar jogadores
+            </button>
+          </section>
+        )}
+      </main>
+    )
+  }
 
   return (
     <main className="setup">
@@ -102,6 +207,29 @@ export default function App() {
               : `Adicione mais ${missingPlayers} jogadores.`}
         </p>
       </section>
+      <button
+        type="button"
+        className="primary full-width start-button"
+        disabled={missingPlayers > 0}
+        onClick={startRound}
+      >
+        Iniciar rodada
+      </button>
     </main>
+  )
+}
+
+function SecretCard({ round, playerIndex }: { round: Round; playerIndex: number }) {
+  const card = getPlayerCard(round, playerIndex)
+  const isImpostor = card.role === 'impostor'
+
+  return (
+    <div className="secret">
+      <p className={`role-label ${isImpostor ? 'impostor-role' : 'civil-role'}`}>
+        {isImpostor ? 'Você é o impostor' : 'Você é um civil'}
+      </p>
+      <p className="muted">{isImpostor ? 'Sua dica' : 'Palavra secreta'}</p>
+      <p className="secret-value">{card.role === 'impostor' ? card.clue : card.word}</p>
+    </div>
   )
 }

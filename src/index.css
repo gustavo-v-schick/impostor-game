@@ -119,3 +119,62 @@ input {
 }
 
 .status { font-size: 14px; margin: 16px 0 0; }
+
+.full-width { width: 100%; min-height: 52px; }
+.start-button { margin-top: 16px; }
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.round-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.round-panel {
+  padding: 28px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.round-panel p, .round-panel h1 { margin: 0; }
+
+.player-name {
+  font-size: clamp(26px, 8vw, 44px);
+  overflow-wrap: anywhere;
+}
+
+.secret {
+  background: #111216;
+  border: 1px solid #353742;
+  border-radius: 12px;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.role-label { font-weight: 700; }
+.impostor-role { color: #fca5a5; }
+.civil-role { color: #86efac; }
+
+.secret-value {
+  font-size: clamp(24px, 8vw, 40px);
+  line-height: 1.2;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #4a4c59;
+  color: inherit;
+  padding: 12px;
+}
