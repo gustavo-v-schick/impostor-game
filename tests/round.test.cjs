@@ -1,6 +1,6 @@
 const test = require('node:test')
 const assert = require('node:assert/strict')
-const { createRound, getPlayerCard, getHints, wordKey, words } = require('../.test-build/game/round.js')
+const { createRound, getPlayerCard, getHints, wordKey, words, matchesWordDifficulty, areSimilar } = require('../.test-build/game/round.js')
 
 const players = ['Ana', 'Bruno', 'Caio', 'Dani']
 const pool = [
@@ -150,4 +150,40 @@ test('completed rounds record participation and exactly one impostor', () => {
   assert.equal(collection.roles.length, players.length)
   assert.equal(collection.roles.reduce((sum, role) => sum + role.impostor, 0), 1)
   assert.ok(collection.roles.every(role => role.rounds === 1))
+})
+
+test('all catalog words have a preliminary difficulty and valid similarity groups', () => {
+  const groups = new Map()
+  for (const entry of words) {
+    assert.ok(['easy', 'medium', 'hard'].includes(entry.wordDifficulty), entry.word)
+    for (const group of entry.similarityGroups ?? []) groups.set(group, (groups.get(group) ?? 0) + 1)
+  }
+  for (const size of groups.values()) assert.ok(size >= 2)
+})
+
+test('word difficulty is independent of clue difficulty', () => {
+  const items = [
+    { ...pool[0], wordDifficulty: 'easy' },
+    { ...pool[1], wordDifficulty: 'hard' },
+  ]
+  const round = createRound(players, [], { ...options, pool: items, wordDifficulty: 'easy', difficulty: 'hard' }, first)
+  assert.equal(round.entry.word, 'Pinguim')
+  assert.equal(round.entry.clue, 'Marcha')
+  assert.equal(matchesWordDifficulty({ word: 'Custom', category: 'Personalizadas', clue: 'Teste' }, 'medium'), true)
+  assert.equal(matchesWordDifficulty(items[1], 'all'), true)
+})
+
+test('related words are skipped only when another unused candidate exists', () => {
+  const items = [
+    { ...pool[0], similarityGroups: ['pair'] },
+    { ...pool[1], similarityGroups: ['pair'] },
+    pool[2],
+  ]
+  assert.ok(areSimilar(items[0], items[1]))
+  const varied = createRound(players, ['pinguim'], { ...options, pool: items, previousWord: 'pinguim', avoidSimilar: true }, first)
+  assert.equal(varied.entry.word, 'Espelho')
+  const fallback = createRound(players, ['pinguim', 'espelho'], { ...options, pool: items, previousWord: 'pinguim', avoidSimilar: true }, first)
+  assert.equal(fallback.entry.word, 'Xadrez')
+  const disabled = createRound(players, ['pinguim'], { ...options, pool: items, previousWord: 'pinguim', avoidSimilar: false }, first)
+  assert.equal(disabled.entry.word, 'Xadrez')
 })

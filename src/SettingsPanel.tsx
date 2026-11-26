@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { CUSTOM_CATEGORY, wordKey, words, getHints } from './game/round'
+import { CUSTOM_CATEGORY, wordKey, words, getHints, matchesWordDifficulty } from './game/round'
 import type { WordEntry, Difficulty } from './game/round'
 import { filterWords } from './game/collection'
 import type { Collection } from './game/collection'
@@ -10,6 +10,8 @@ export type Theme = 'violet' | 'ocean' | 'forest' | 'amber'
 export interface GameSettings {
   readonly categories: readonly string[]
   readonly difficulty: Difficulty
+  readonly wordDifficulty: Difficulty | 'all'
+  readonly avoidSimilar: boolean
   readonly timerSeconds: number
   readonly holdToReveal: boolean
   readonly clueEnabled: boolean
@@ -23,7 +25,7 @@ const TIMER_OPTIONS = [0, 60, 120, 180, 300] as const
 const categories = [...new Set(words.map((entry) => entry.category))].sort((a, b) => a.localeCompare(b, 'pt-BR'))
 
 export function loadSettings(): GameSettings {
-  const defaults: GameSettings = { categories: [], difficulty: 'medium', timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [], theme: 'violet', sound: false }
+  const defaults: GameSettings = { categories: [], difficulty: 'medium', wordDifficulty: 'all', avoidSimilar: true, timerSeconds: 0, holdToReveal: true, clueEnabled: true, customWords: [], theme: 'violet', sound: false }
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null')
     if (!stored || typeof stored !== 'object') return defaults
@@ -46,6 +48,8 @@ export function loadSettings(): GameSettings {
     return {
       categories: selectedCategories,
       difficulty: stored.difficulty === 'easy' || stored.difficulty === 'hard' ? stored.difficulty : 'medium',
+      wordDifficulty: stored.wordDifficulty === 'easy' || stored.wordDifficulty === 'medium' || stored.wordDifficulty === 'hard' ? stored.wordDifficulty : 'all',
+      avoidSimilar: typeof stored.avoidSimilar === 'boolean' ? stored.avoidSimilar : true,
       timerSeconds: TIMER_OPTIONS.some((seconds) => seconds === stored.timerSeconds) ? stored.timerSeconds : 0,
       holdToReveal: typeof stored.holdToReveal === 'boolean' ? stored.holdToReveal : true,
       clueEnabled: typeof stored.clueEnabled === 'boolean' ? stored.clueEnabled : true,
@@ -70,6 +74,7 @@ export function getWordPool(settings: GameSettings, collection: Collection): rea
   const entries = [...words, ...settings.customWords]
   return filterWords(entries, collection).filter((entry) =>
     (settings.categories.length === 0 || settings.categories.includes(entry.category)) &&
+    matchesWordDifficulty(entry, settings.wordDifficulty) &&
     (!settings.clueEnabled || getHints(entry, settings.difficulty).length > 0),
   )
 }
@@ -139,6 +144,18 @@ export default function SettingsPanel({ settings, collection, onChange }: Props)
         <label className="check-option">
           <input type="checkbox" checked={settings.clueEnabled} onChange={(event) => onChange({ ...settings, clueEnabled: event.target.checked })} />
           Impostor recebe dica
+        </label>
+        <label htmlFor="word-difficulty">Dificuldade da palavra</label>
+        <select id="word-difficulty" value={settings.wordDifficulty} onChange={event => onChange({ ...settings, wordDifficulty: event.target.value as Difficulty | 'all' })}>
+          <option value="all">Todas</option>
+          <option value="easy">Fácil — palavras familiares</option>
+          <option value="medium">Normal — dificuldade intermediária ou não revisada</option>
+          <option value="hard">Difícil — termos mais específicos</option>
+        </select>
+        <p className="muted category-help">A classificação é editorial e provisória; não depende das notas dos jogadores.</p>
+        <label className="check-option">
+          <input type="checkbox" checked={settings.avoidSimilar} onChange={event => onChange({ ...settings, avoidSimilar: event.target.checked })} />
+          Evitar palavras semelhantes em rodadas seguidas
         </label>
         <label htmlFor="difficulty">Dificuldade da dica</label>
         <select id="difficulty" disabled={!settings.clueEnabled} value={settings.difficulty} onChange={(event) => onChange({ ...settings, difficulty: event.target.value as Difficulty })}>

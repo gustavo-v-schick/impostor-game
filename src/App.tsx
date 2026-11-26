@@ -115,8 +115,11 @@ export default function App() {
       clueEnabled: settings.clueEnabled,
       difficulty: settings.difficulty,
       previousImpostor: history.previousImpostor,
+      previousWord: history.previousWord,
+      wordDifficulty: settings.wordDifficulty,
+      avoidSimilar: settings.avoidSimilar,
     })
-    setHistory({ usedWords: round.usedWords, previousImpostor: wordKey(round.players[round.impostorIndex]) })
+    setHistory({ usedWords: round.usedWords, previousWord: wordKey(round.entry.word), previousImpostor: wordKey(round.players[round.impostorIndex]) })
     playSound(settings.sound, 'start')
     setGame({ phase: 'handoff', round, playerIndex: 0 })
   }

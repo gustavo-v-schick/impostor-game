@@ -6,6 +6,19 @@ import type { Collection, Rating, WordScore } from './game/collection'
 
 type Change = (update: (current: Collection) => Collection) => void
 
+// Export only catalog feedback. Player names and statistics are not included.
+function exportFeedback(collection: Collection): void {
+  const payload = { schemaVersion: 1, wordRatings: collection.wordRatings, clueRatings: collection.ratings }
+  const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }))
+  const link = document.createElement('a')
+  link.href = url
+  link.download = 'impostor-avaliacoes.json'
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
+
 export function RoundFeedback({ round, collection, onChange }: { round: Round; collection: Collection; onChange: Change }) {
   const { word, clue } = round.entry
   const key = wordKey(word)
@@ -72,6 +85,8 @@ export function CollectionPanel({ collection, customWords, onChange }: { collect
           })}
         </ul>
         {matches.length === 0 && <p className="empty">Nenhuma palavra nesta lista.</p>}
+        <button className="secondary full-width" type="button" disabled={collection.wordRatings.length + collection.ratings.length === 0} onClick={() => exportFeedback(collection)}>Exportar avaliações (JSON)</button>
+        <p className="muted category-help">O arquivo contém apenas as notas das palavras e dicas, sem nomes dos jogadores.</p>
       </div>
     </details>
   )

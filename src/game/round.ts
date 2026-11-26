@@ -4,6 +4,8 @@ export type Difficulty = 'easy' | 'medium' | 'hard'
 
 export interface WordEntry {
   readonly hints?: Readonly<Record<Difficulty, readonly string[]>>
+  readonly wordDifficulty?: Difficulty
+  readonly similarityGroups?: readonly string[]
   readonly category: string
   readonly word: string
   readonly clue: string
@@ -31,10 +33,23 @@ export interface RoundOptions {
   readonly clueEnabled: boolean
   readonly difficulty?: Difficulty
   readonly previousImpostor?: string | null
+  readonly wordDifficulty?: Difficulty | 'all'
+  readonly avoidSimilar?: boolean
+  readonly previousWord?: string | null
 }
 
 export function getHints(entry: WordEntry, difficulty: Difficulty): readonly string[] {
   return entry.hints?.[difficulty] ?? (difficulty === 'medium' ? [entry.clue] : [])
+}
+
+// Custom words without a difficulty classification remain eligible in all/normal modes.
+export function matchesWordDifficulty(entry: WordEntry, difficulty: Difficulty | 'all'): boolean {
+  return difficulty === 'all' || (entry.wordDifficulty ?? 'medium') === difficulty
+}
+
+export function areSimilar(first: WordEntry, second: WordEntry): boolean {
+  const groups = new Set(first.similarityGroups ?? [])
+  return (second.similarityGroups ?? []).some(group => groups.has(group))
 }
 
 export function wordKey(word: string): string {
@@ -61,7 +76,10 @@ export function createRound(
   }
 
   const { clueEnabled, difficulty = 'medium', previousImpostor } = options
-  const pool = options.pool.filter((entry) => !clueEnabled || getHints(entry, difficulty).length > 0)
+  const pool = options.pool.filter((entry) =>
+    matchesWordDifficulty(entry, options.wordDifficulty ?? 'all') &&
+    (!clueEnabled || getHints(entry, difficulty).length > 0),
+  )
   if (pool.length === 0) {
     throw new Error('No words available.')
   }
@@ -71,11 +89,15 @@ export function createRound(
   const poolKeys = new Set(pool.map((entry) => wordKey(entry.word)))
 
   // Reset only the selected pool after exhaustion; keep other categories' history.
-  const lastWord = usedWords[usedWords.length - 1]
+  const lastWord = options.previousWord ?? usedWords[usedWords.length - 1]
   const newCycle = pool.filter((entry) => wordKey(entry.word) !== lastWord)
   const candidates = unused.length > 0 ? unused : newCycle.length > 0 ? newCycle : pool
-  // Ratings are descriptive only. All eligible unused words have equal weight.
-  const selected = candidates[randomIndex(candidates.length, random)]
+  const previous = lastWord && (options.pool.find(entry => wordKey(entry.word) === lastWord) ?? words.find(entry => wordKey(entry.word) === lastWord))
+  const varied = options.avoidSimilar && previous ? candidates.filter(entry => !areSimilar(previous, entry)) : candidates
+  // Never repeat a used word early just to avoid a related one. If all candidates
+  // are related, allow them. Ratings remain completely independent of the draw.
+  const eligible = varied.length > 0 ? varied : candidates
+  const selected = eligible[randomIndex(eligible.length, random)]
   const hints = clueEnabled ? getHints(selected, difficulty) : []
   const entry = { ...selected, clue: hints.length ? hints[randomIndex(hints.length, random)] : selected.clue }
   const eligibleImpostors = players.map((_, index) => index).filter((index) =>
