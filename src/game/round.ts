@@ -24,7 +24,17 @@ export type PlayerCard =
   | { readonly player: string; readonly role: 'civil'; readonly word: string }
   | { readonly player: string; readonly role: 'impostor'; readonly clue: string | null }
 
-export const words: readonly WordEntry[] = catalog
+// JSON imports widen string literals to string. Validate the boundary rather
+// than casting an unverified catalog to WordEntry[].
+function parseWordDifficulty(value: unknown): Difficulty {
+  if (value === 'easy' || value === 'medium' || value === 'hard') return value
+  throw new Error('Invalid catalog word difficulty: ' + String(value))
+}
+
+export const words: readonly WordEntry[] = catalog.map(entry => ({
+  ...entry,
+  wordDifficulty: parseWordDifficulty(entry.wordDifficulty),
+}))
 
 export const CUSTOM_CATEGORY = 'Personalizadas'
 
