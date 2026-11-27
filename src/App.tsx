@@ -4,7 +4,7 @@ import { createRound, getPlayerCard, wordKey } from './game/round'
 import type { Round } from './game/round'
 import { version } from '../package.json'
 import { watchForUpdate, applyUpdate } from './pwa'
-import SettingsPanel, { loadSettings, saveSettings, getWordPool } from './SettingsPanel'
+import SettingsPanel, { CategoriesPanel, loadSettings, saveSettings, getWordPool } from './SettingsPanel'
 import { loadHistory, saveHistory } from './game/history'
 import { RevealButton, DiscussionTimer, FinalReveal, GameMark } from './RoundControls'
 import { loadCollection, saveCollection, recordCompleted } from './game/collection'
@@ -52,6 +52,9 @@ export default function App() {
   const [collection, setCollection] = useState(loadCollection)
   useEffect(() => saveCollection(collection), [collection])
   const [settings, setSettings] = useState(loadSettings)
+  const [advancedOpen, setAdvancedOpen] = useState(false)
+  const [showWords, setShowWords] = useState(false)
+  const [showStats, setShowStats] = useState(false)
   useEffect(() => {
     const root = document.documentElement
     root.dataset.theme = settings.theme
@@ -340,9 +343,27 @@ export default function App() {
               : `Adicione mais ${missingPlayers} jogadores.`}
         </p>
       </section>
+      <CategoriesPanel settings={settings} onChange={setSettings} />
       <SettingsPanel settings={settings} collection={collection} onChange={setSettings} />
-      <CollectionPanel collection={collection} customWords={settings.customWords} onChange={setCollection} />
-      <StatsPanel collection={collection} onChange={setCollection} />
+      <button type="button" className="secondary full-width advanced-toggle" aria-expanded={advancedOpen} aria-controls="advanced-options" onClick={() => setAdvancedOpen(current => !current)}>
+        <span>Opções avançadas</span><span aria-hidden="true">{advancedOpen ? '−' : '+'}</span>
+      </button>
+      <section id="advanced-options" hidden={!advancedOpen} aria-label="Opções avançadas">
+        {advancedOpen && <>
+          <div className="panel settings-panel advanced-selection">
+            <label className="check-option">
+              <input type="checkbox" checked={showWords} onChange={event => setShowWords(event.target.checked)} />
+              Gerenciar palavras
+            </label>
+            <label className="check-option">
+              <input type="checkbox" checked={showStats} onChange={event => setShowStats(event.target.checked)} />
+              Estatísticas locais
+            </label>
+          </div>
+          {showWords && <CollectionPanel collection={collection} customWords={settings.customWords} onChange={setCollection} />}
+          {showStats && <StatsPanel collection={collection} onChange={setCollection} />}
+        </>}
+      </section>
       <div className="start-dock">
         <div className="dock-meta"><span>{players.length} jogadores</span><span>{pool.length} palavras elegíveis</span></div>
         <button type="button" className="primary full-width start-button" disabled={missingPlayers > 0 || pool.length === 0} onClick={startRound}>

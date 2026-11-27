@@ -154,3 +154,10 @@ button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); b
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } .reveal-button.pressing::after { width:100%; } }
 @media (max-width:360px) { .panel { padding:14px; } .round-panel { padding:20px 12px; } .players li { gap:6px; } .player-actions { gap:2px; } .player-index { display:none; } .theme-option { font-size:.74rem; } }
 @media (max-height:570px) { .round-screen { justify-content:flex-start; } .round-panel { padding:16px; gap:12px; } .sealed-card { min-height:90px; } .role-card { min-height:150px; } }
+
+/* Independent category selection and optional advanced panels. */
+.advanced-toggle { display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding:12px 16px; }
+.advanced-toggle > span:last-child { color:var(--accent); font-size:1.25rem; }
+.advanced-selection .check-option { margin:0; }
+.advanced-selection .check-option + .check-option { border-top:1px solid var(--border); }
+.categories-panel .category-options { margin-top:12px; }

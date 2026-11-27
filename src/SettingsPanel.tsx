@@ -93,6 +93,27 @@ interface Props {
   onChange: (settings: GameSettings) => void
 }
 
+export function CategoriesPanel({ settings, onChange }: Pick<Props, 'settings' | 'onChange'>) {
+  return (
+    <details className="panel settings-panel categories-panel">
+      <summary>Categorias · {settings.categories.length === 0 ? 'Todas' : settings.categories.length + ' selecionadas'}</summary>
+      <button type="button" className="secondary full-width" onClick={() => onChange({ ...settings, categories: [] })}>Usar todas</button>
+      <p className="muted category-help">Sem seleção específica, todas entram no sorteio.</p>
+      <div className="category-options">
+        {[...categories, ...(settings.customWords.length ? [CUSTOM_CATEGORY] : [])].map((category) => (
+          <label className="check-option" key={category}>
+            <input type="checkbox" checked={settings.categories.includes(category)} onChange={(event) => onChange({
+              ...settings,
+              categories: event.target.checked ? [...settings.categories, category] : settings.categories.filter((item) => item !== category),
+            })} />
+            {category}
+          </label>
+        ))}
+      </div>
+    </details>
+  )
+}
+
 export default function SettingsPanel({ settings, collection, onChange }: Props) {
   const [word, setWord] = useState('')
   const [clue, setClue] = useState('')
@@ -133,22 +154,6 @@ export default function SettingsPanel({ settings, collection, onChange }: Props)
     <details className="panel settings-panel">
       <summary>Opções da rodada <span className="muted">· {getWordPool(settings, collection).length} palavras</span></summary>
       <div className="settings-content">
-        <details className="category-panel">
-          <summary>Categorias · {settings.categories.length === 0 ? 'Todas' : settings.categories.length + ' selecionadas'}</summary>
-          <button type="button" className="secondary full-width" onClick={() => onChange({ ...settings, categories: [] })}>Usar todas</button>
-          <p className="muted category-help">Sem seleção específica, todas entram no sorteio.</p>
-          <div className="category-options">
-            {[...categories, ...(settings.customWords.length ? [CUSTOM_CATEGORY] : [])].map((category) => (
-              <label className="check-option" key={category}>
-                <input type="checkbox" checked={settings.categories.includes(category)} onChange={(event) => onChange({
-                  ...settings,
-                  categories: event.target.checked ? [...settings.categories, category] : settings.categories.filter((item) => item !== category),
-                })} />
-                {category}
-              </label>
-            ))}
-          </div>
-        </details>
         <label className="check-option">
           <input type="checkbox" checked={settings.clueEnabled} onChange={(event) => onChange({ ...settings, clueEnabled: event.target.checked })} />
           Impostor recebe dica
