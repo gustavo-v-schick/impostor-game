@@ -61,7 +61,7 @@ export default function App() {
     root.dataset.motion = settings.reduceMotion ? 'reduced' : 'auto'
     root.dataset.text = settings.largeText ? 'large' : 'normal'
     root.dataset.contrast = settings.highContrast ? 'high' : 'normal'
-    const colors = { violet: '#11131e', ocean: '#101d2a', forest: '#111e19', amber: '#211a15' }
+    const colors = { violet: '#11131e', ocean: '#101d2a', forest: '#111e19', amber: '#211a15', ruby: '#23151c' }
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', settings.highContrast ? '#090a10' : colors[settings.theme])
   }, [settings.theme, settings.reduceMotion, settings.largeText, settings.highContrast])
   const screenRef = useRef<HTMLElement>(null)

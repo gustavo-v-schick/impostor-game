@@ -5,7 +5,7 @@ import type { WordEntry, Difficulty } from './game/round'
 import { filterWords } from './game/collection'
 import type { Collection } from './game/collection'
 
-export type Theme = 'violet' | 'ocean' | 'forest' | 'amber'
+export type Theme = 'violet' | 'ocean' | 'forest' | 'amber' | 'ruby'
 
 export interface GameSettings {
   readonly categories: readonly string[]
@@ -58,7 +58,7 @@ export function loadSettings(): GameSettings {
       holdToReveal: typeof stored.holdToReveal === 'boolean' ? stored.holdToReveal : true,
       clueEnabled: typeof stored.clueEnabled === 'boolean' ? stored.clueEnabled : true,
       customWords,
-      theme: stored.theme === 'ocean' || stored.theme === 'forest' || stored.theme === 'amber' ? stored.theme : 'violet',
+      theme: stored.theme === 'ocean' || stored.theme === 'forest' || stored.theme === 'amber' || stored.theme === 'ruby' ? stored.theme : 'violet',
       sound: stored.sound === true,
       haptics: stored.haptics === true,
       reduceMotion: stored.reduceMotion === true,
@@ -189,7 +189,7 @@ export default function SettingsPanel({ settings, collection, onChange }: Props)
         <fieldset className="appearance">
           <legend>Aparência e acessibilidade</legend>
           <div className="theme-options" role="group" aria-label="Tema visual">
-            {([{ id: 'violet', name: 'Violeta' }, { id: 'ocean', name: 'Oceano' }, { id: 'forest', name: 'Floresta' }, { id: 'amber', name: 'Âmbar' }] as const).map(theme =>
+            {([{ id: 'violet', name: 'Violeta' }, { id: 'ocean', name: 'Oceano' }, { id: 'forest', name: 'Floresta' }, { id: 'amber', name: 'Âmbar' }, { id: 'ruby', name: 'Rubi' }] as const).map(theme =>
               <button type="button" className="theme-option" key={theme.id} data-swatch={theme.id} aria-pressed={settings.theme === theme.id} onClick={() => onChange({ ...settings, theme: theme.id })}>
                 <span className="theme-swatch" aria-hidden="true" />{theme.name}
               </button>
